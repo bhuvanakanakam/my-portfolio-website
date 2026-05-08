@@ -86,3 +86,10 @@ export default function About() {
       >
         <p className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468] mb-8">
           Outside the terminal
+
+        </p>
+        <InterestsGrid />
+      </motion.div>
+    </motion.section>
+  );
+}

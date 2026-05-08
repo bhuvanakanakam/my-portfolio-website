@@ -98,4 +98,12 @@ export default function Footer() {
           <p className="font-body text-xs text-[var(--beige-500)] text-center">
             Open to connecting · SWE / MLE · backend, full-stack, and ML engineering
           </p>
-          <p className="font-body text-xs text-[var(--beige-
+          <p className="font-body text-xs text-[var(--beige-500)]">
+            © 2026 Bhuvana Kanakam
+          </p>
+        </motion.div>
+
+      </div>
+    </footer>
+  );
+}

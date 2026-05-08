@@ -238,3 +238,24 @@ export default function Projects() {
                     className="inline-block font-body text-sm tracking-[0.15em] uppercase border border-[#2a2118] text-[#2a2118] px-6 py-2.5 hover:bg-[#2a2118] hover:text-[#faf8f5] transition-all duration-300"
                     data-cursor-hover
          
+                  >
+                    View Live ↗
+                  </a>
+                )}
+                <a
+                  href={activeProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block font-body text-sm tracking-[0.15em] uppercase text-[#9e8468] hover:text-[#2a2118] transition-colors"
+                  data-cursor-hover
+                >
+                  GitHub ↗
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.section>
+  );
+}

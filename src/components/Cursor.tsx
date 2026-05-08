@@ -75,4 +75,9 @@ export default function Cursor() {
   }, []);
 
   return (
-    <>
+    <>
+      <div id="cursor-dot" />
+      <div id="cursor-ring" />
+    </>
+  );
+}

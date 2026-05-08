@@ -133,3 +133,14 @@ export default function Extracurriculars() {
             <span
               key={i}
               className="mx-8 font-body text-[12px] tracking-wide text-[var(--text-secondary)] font-light"
+
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+
+    </motion.section>
+  );
+}
