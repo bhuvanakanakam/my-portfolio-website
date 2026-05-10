@@ -7,7 +7,7 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "Data Viz", "F1 API"],
     github: "https://github.com/bhuvanakanakam",
     live: "https://kaybee-f1.vercel.app/",
-    color: "#e8d4bc",
+    color: "#f5f0e8",
     year: "2025",
     story:
       "I've followed F1 obsessively for years and kept notes on races in a scattered mix of spreadsheets and mental bookmarks. At some point that stopped being enough. I wanted one place to see standings, lap-by-lap deltas, and season arcs without hunting through the official app. So I built it. The interesting engineering problem was aligning data from different sources with mismatched timing and inconsistent driver/team identifiers across seasons. The visualization layer was the fun part: making it immediately readable, not just technically accurate. It's a personal tool first, but I kept it clean enough to share.",
@@ -32,7 +32,7 @@ export const projects = [
     tags: ["JavaScript", "Node.js", "SQL Server", "HTML/CSS", "Vercel"],
     github: "https://github.com/bhuvanakanakam/baes-kankan-ecommerce",
     live: "https://bae-kankan.vercel.app",
-    color: "#e8d8c0",
+    color: "#ede4d4",
     year: "2025",
     story:
       "I built this from scratch as a personal project to practice full-stack web development end-to-end. The frontend is vanilla HTML, CSS, and JavaScript with a custom design — no frameworks, just clean code. The backend is a Node.js + Express REST API connected to SQL Server, handling products, user authentication (JWT), and order management.\n\nThe product catalogue has 30 real items across shoes, bags, apparel, accessories, and make-up, each with individual CDN-hosted images from actual brand websites and hand-written product descriptions. The cart, wishlist, filters, sorting, search, and checkout all work client-side with localStorage persistence.\n\nOne interesting challenge was deploying a site that normally needs a local backend to Vercel (a static/serverless host). I solved it by adding a smart fallback: when the API is unreachable (i.e. not running locally), the frontend seamlessly loads from a hardcoded product catalogue instead. The result is a site that works fully on Vercel for demo purposes, and switches to live backend data when running locally.\n\nThe biggest headache was getting the images and code pushed to GitHub — the project folder was on a Windows CIFS mount that caused binary file lock errors with Git. I worked around it by rsync-copying the project to a temp Linux directory, then running git from there.",
@@ -44,7 +44,7 @@ export const projects = [
       "An AI system that generates Rasa Theory-aligned music using multi-objective Differential Evolution, variable crossover, and Fourier-based emotion-attribute encoding.",
     tags: ["Python", "Differential Evolution", "FFT", "SOM", "ALI-GAN"],
     github: "https://github.com/bhuvanakanakam",
-    color: "#ede4d4",
+    color: "#f5f0e8",
     year: "2024",
     story:
       "This started as a research question: can you algorithmically compose music that evokes a specific emotional state (Rasa) from Indian classical aesthetics? I implemented FC-means evolutionary clustering and an ALI-GAN pipeline, running experiments on a DGX supercomputer. The hardest bug was a multiprocessing seed replication issue that was silently killing result diversity; finding it took three days. The work contributed to an IEEE Transactions submission.",
