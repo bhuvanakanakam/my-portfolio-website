@@ -7,7 +7,7 @@ export const projects = [
     tags: ["Next.js", "TypeScript", "Data Viz", "F1 API"],
     github: "https://github.com/bhuvanakanakam",
     live: "https://kaybee-f1.vercel.app/",
-    color: "#e8d5d5",
+    color: "#e8d4bc",
     year: "2025",
     story:
       "I've followed F1 obsessively for years and kept notes on races in a scattered mix of spreadsheets and mental bookmarks. At some point that stopped being enough. I wanted one place to see standings, lap-by-lap deltas, and season arcs without hunting through the official app. So I built it. The interesting engineering problem was aligning data from different sources with mismatched timing and inconsistent driver/team identifiers across seasons. The visualization layer was the fun part: making it immediately readable, not just technically accurate. It's a personal tool first, but I kept it clean enough to share.",
