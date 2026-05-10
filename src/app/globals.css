@@ -162,3 +162,7 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+.animate-ticker {
+  animation: ticker 28s linear infinite;
+}
+

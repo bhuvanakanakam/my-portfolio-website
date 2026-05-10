@@ -91,7 +91,7 @@ export default function Hero() {
         </div>
 
         {/* Main heading */}
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.08] text-[#2a2118] tracking-tight">
+        <h1 className="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-light leading-[1.08] text-[#2a2118] tracking-tight break-words max-w-full">
           {/* Line 1 — slides up at 0.68s */}
           <div className="overflow-hidden leading-[1.12]">
             <motion.div
@@ -110,7 +110,7 @@ export default function Hero() {
               animate={{ y: "0%" }}
               transition={{ duration: 0.88, delay: 0.8, ease: EASE }}
             >
-              <span className="italic text-[#9e8468] whitespace-nowrap">
+              <span className="italic text-[#9e8468]">
                 {typedText}
               </span>
               {started && <span className="hero-type-cursor text-[#9e8468]">|</span>}
