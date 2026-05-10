@@ -25,6 +25,19 @@ export const projects = [
       "The question I started with: what if a UI could read what you're thinking about, without you clicking or typing anything? The architecture has three layers: perception (MediaPipe extracts iris coordinates at 30fps), understanding (a fixation detector identifies when you're dwelling on a specific DOM element for 800ms+), and action (a rule engine maps those fixation events to UI adaptations). Exponential moving average smoothing handles the natural jitter in eye position. The whole pipeline runs locally in the browser, which matters architecturally for any enterprise use. Rule-based inference over ML for now, interpretable, fast to build, and good enough for a constrained UI. The ML version is future work.",
   },
   {
+    id: "baes-kankan",
+    title: "Bae's Kankan — E-Commerce",
+    description:
+      "A full-stack premium fashion e-commerce website with 30 curated products, cart, wishlist, checkout, user auth, and a Node.js + SQL Server backend. Deployed live on Vercel.",
+    tags: ["JavaScript", "Node.js", "SQL Server", "HTML/CSS", "Vercel"],
+    github: "https://github.com/bhuvanakanakam/baes-kankan-ecommerce",
+    live: "https://bae-kankan.vercel.app",
+    color: "#e8d8c0",
+    year: "2025",
+    story:
+      "I built this from scratch as a personal project to practice full-stack web development end-to-end. The frontend is vanilla HTML, CSS, and JavaScript with a custom design — no frameworks, just clean code. The backend is a Node.js + Express REST API connected to SQL Server, handling products, user authentication (JWT), and order management.\n\nThe product catalogue has 30 real items across shoes, bags, apparel, accessories, and make-up, each with individual CDN-hosted images from actual brand websites and hand-written product descriptions. The cart, wishlist, filters, sorting, search, and checkout all work client-side with localStorage persistence.\n\nOne interesting challenge was deploying a site that normally needs a local backend to Vercel (a static/serverless host). I solved it by adding a smart fallback: when the API is unreachable (i.e. not running locally), the frontend seamlessly loads from a hardcoded product catalogue instead. The result is a site that works fully on Vercel for demo purposes, and switches to live backend data when running locally.\n\nThe biggest headache was getting the images and code pushed to GitHub — the project folder was on a Windows CIFS mount that caused binary file lock errors with Git. I worked around it by rsync-copying the project to a temp Linux directory, then running git from there.",
+  },
+  {
     id: "1",
     title: "Emotion-Aligned Music Composition",
     description:
