@@ -4,6 +4,9 @@ import { useEffect } from "react";
 
 export default function Cursor() {
   useEffect(() => {
+    // Don't run on touch devices
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
     const dot = document.getElementById("cursor-dot");
     const ring = document.getElementById("cursor-ring");
     if (!dot || !ring) return;

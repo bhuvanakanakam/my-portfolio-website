@@ -117,8 +117,8 @@ export default function InterestsGrid() {
               </p>
 
               {isAthletics ? (
-                /* Athletics — sport chips appear in place of tag on hover */
-                <div className="opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-12 transition-all duration-300 mt-1">
+                /* Athletics — always visible on mobile, hover-reveal on desktop */
+                <div className="max-h-20 opacity-100 overflow-hidden mt-1 sm:opacity-0 sm:max-h-0 sm:group-hover:opacity-100 sm:group-hover:max-h-12 transition-all duration-300">
                   <div className="flex flex-wrap gap-1.5">
                     {item.sports!.map((sport) => (
                       <span
@@ -131,8 +131,8 @@ export default function InterestsGrid() {
                   </div>
                 </div>
               ) : (
-                /* Standard — tag fades in */
-                <p className="font-body text-[11px] text-[var(--text-secondary)] leading-snug mt-1 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200">
+                /* Standard — always visible on mobile, hover-reveal on desktop */
+                <p className="font-body text-[11px] text-[var(--text-secondary)] leading-snug mt-1 opacity-100 translate-y-0 sm:opacity-0 sm:-translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-200">
                   {item.tag}
                 </p>
               )}

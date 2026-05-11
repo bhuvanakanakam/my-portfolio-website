@@ -21,6 +21,17 @@
   box-sizing: border-box;
 }
 
+/* Restore default cursor on touch/mobile devices */
+@media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  #cursor-dot,
+  #cursor-ring {
+    display: none !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
