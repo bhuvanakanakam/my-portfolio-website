@@ -380,6 +380,14 @@ export const skills = {
   tools: ["Azure", "AWS", "Git", "CI/CD", "Microsoft Graph API"],
 };
 
+export type ExperienceProject = {
+  category?: string;
+  title: string;
+  description: string;
+  focusAreas?: string[];
+  tech: string[];
+};
+
 export type ExperienceEntry = {
   company: string;
   initials: string;
@@ -390,6 +398,8 @@ export type ExperienceEntry = {
   current?: boolean;
   bullets?: string[];
   note?: string;
+  summary?: string;
+  projects?: ExperienceProject[];
 };
 
 export const experience: ExperienceEntry[] = [
@@ -406,17 +416,165 @@ export const experience: ExperienceEntry[] = [
       "Developed ASP.NET Core / .NET 8 services with CI/CD pipelines on Azure.",
       "Integrated Azure OpenAI and Microsoft Graph API into production workflows.",
     ],
+    summary:
+      "Working on enterprise platform migration, reusable frontend infrastructure, and cloud platform engineering for CALUMO as part of insightsoftware's unified enterprise ecosystem.",
+    projects: [
+      {
+        category: "Platform Migration",
+        title: "CALUMO → Unified Platform Migration",
+        description:
+          "Migrated legacy CALUMO product experiences onto insightsoftware's shared enterprise platform using the JustPerform design system and reusable UI standards.",
+        focusAreas: [
+          "Product modernisation",
+          "Platformisation",
+          "Shared UI infrastructure",
+          "Enterprise migration workflows",
+        ],
+        tech: ["React", "TypeScript", "ASP.NET Core", "Azure"],
+      },
+      {
+        category: "Universal UI & Design Systems",
+        title: "Universal UI Engineering",
+        description:
+          "Built reusable enterprise UI systems including navigation, pagination, editable-grid interactions, and scalable theming architecture aligned with company-wide standards.",
+        focusAreas: [
+          "Data-grid UX",
+          "Design systems",
+          "Reusable components",
+          "Tokenised theming",
+        ],
+        tech: ["React", "Storybook", "Sass", "Design Tokens"],
+      },
+      {
+        category: "Enterprise Rendering Systems",
+        title: "Notification & Rendering Architecture",
+        description:
+          "Worked on structured notification rendering systems, release-note workflows, and HTML-to-React parsing pipelines for dynamic enterprise content experiences.",
+        focusAreas: [
+          "Rendering systems",
+          "Dynamic content pipelines",
+          "Frontend parsing workflows",
+          "Reusable rendering architecture",
+        ],
+        tech: ["React", "TypeScript", "APIs"],
+      },
+      {
+        category: "Cloud Platform Engineering",
+        title: "Multi-Tenant Cloud Management Portal",
+        description:
+          "Built a self-service Azure-based cloud management platform with tenant-scoped access control and secure enterprise configuration workflows. Implemented domain-specific access isolation so enterprise customers manage only their own environments without dependency on DevOps or support teams.",
+        focusAreas: [
+          "Multi-tenant SaaS systems",
+          "Access control & isolation",
+          "Enterprise cloud tooling",
+          "Self-service configuration workflows",
+        ],
+        tech: ["C#", ".NET 8", "ASP.NET Core", "Azure"],
+      },
+      {
+        category: "Enterprise Cloud Systems",
+        title: "Cloud Management Export Systems",
+        description:
+          "Owned release-critical fixes for CALUMO's Cloud Management Export workflows across UI and backend service layers for the Calumo 26.1 release.",
+        focusAreas: [
+          "Full stack debugging",
+          "Cloud workflow engineering",
+          "Backend integrations",
+          "Release engineering",
+        ],
+        tech: ["C#", "ASP.NET Core", "Azure"],
+      },
+      {
+        category: "Security & Release Engineering",
+        title: "Web Installer Security Hardening",
+        description:
+          "Implemented installer security improvements including credential masking, validation gating, and production regression fixes for enterprise deployments.",
+        focusAreas: [
+          "Security hardening",
+          "Deployment workflows",
+          "Release engineering",
+        ],
+        tech: ["C#", ".NET", "WIX"],
+      },
+      {
+        category: "Developer Experience Tooling",
+        title: "Engineer Onboarding Portal",
+        description:
+          "Designed and shipped an internal onboarding portal consolidating setup workflows, engineering documentation, KT videos, Jira workflows, and repository access into a unified experience. Reduced onboarding ramp-up time from 4+ weeks to under 1 week.",
+        focusAreas: [
+          "Developer experience",
+          "Internal platform tooling",
+          "Knowledge management",
+          "Process optimisation",
+        ],
+        tech: ["React", "Next.js", "Node.js"],
+      },
+    ],
   },
   {
     company: "insightsoftware",
     initials: "ISW",
-    role: "Software Engineering Intern",
-    period: "Jan 2025 – Jun 2025",
+    role: "Software Engineer Intern",
+    period: "Jan 2025 – Jul 2025",
     location: "Hyderabad, India",
     type: "work",
     bullets: [
       "Contributed to CDM Next, a financial data management platform serving enterprise clients.",
       "Built backend APIs and services in C# / .NET 8 across feature development and production releases.",
+    ],
+    summary:
+      "Worked as a full stack engineering intern contributing to enterprise finance & planning product releases for CALUMO.",
+    projects: [
+      {
+        category: "Onboarding Bootcamp",
+        title: "Full-Stack E-Commerce Demo",
+        description:
+          "Built a full-stack e-commerce web app as the intern cohort's onboarding project — product catalogue, cart, ASP.NET Identity auth, and a SQL Server backend. Won Best Demo in the cohort showcase.",
+        focusAreas: [
+          "Full stack engineering",
+          "Authentication & authorisation",
+          "Relational data modelling",
+          "End-to-end product shipping",
+        ],
+        tech: ["ASP.NET Core", "C#", "SQL Server", "JavaScript"],
+      },
+      {
+        category: "GA Release Engineering",
+        title: "Roll Forward & Export Systems",
+        description:
+          "Delivered full stack enterprise workflows as part of CALUMO's GA release, contributing across frontend and backend systems.",
+        focusAreas: [
+          "Full stack engineering",
+          "Enterprise workflows",
+          "Backend integrations",
+          "Product feature delivery",
+        ],
+        tech: ["C#", ".NET", "React", "SQL"],
+      },
+      {
+        category: "Product Telemetry",
+        title: "Telemetry & Analytics Instrumentation",
+        description:
+          "Implemented telemetry and analytics integrations to improve workflow observability and engineering insights.",
+        focusAreas: [
+          "Product telemetry",
+          "Analytics instrumentation",
+          "Monitoring workflows",
+        ],
+        tech: ["React", "APIs", "Analytics"],
+      },
+      {
+        category: "Customer-Facing Web Engineering",
+        title: "Platform & Web Experiences",
+        description:
+          "Worked on customer-facing web workflows, platform integrations, and internal tooling initiatives across the CALUMO ecosystem.",
+        focusAreas: [
+          "Frontend engineering",
+          "Platform integrations",
+          "Enterprise web workflows",
+        ],
+        tech: ["React", "TypeScript", "APIs"],
+      },
     ],
   },
   {
@@ -430,6 +588,36 @@ export const experience: ExperienceEntry[] = [
       "Built and shipped full-stack product features using React and Node.js.",
       "Worked across frontend and backend to deliver user-facing improvements end-to-end.",
     ],
+    summary:
+      "Shipped full-stack product features end-to-end on a small remote team — from API design through React component to deploy.",
+    projects: [
+      {
+        category: "Full Stack Engineering",
+        title: "User-Facing Product Features",
+        description:
+          "Built customer-facing React UI flows backed by a Node.js + Express API, owning each feature from data shape to deployed component. Worked with product to scope and ship within tight iteration cycles.",
+        focusAreas: [
+          "React component design",
+          "REST API design",
+          "End-to-end feature ownership",
+          "Cross-functional collaboration",
+        ],
+        tech: ["React", "Node.js", "Express", "JavaScript"],
+      },
+      {
+        category: "Backend & Data",
+        title: "Service Layer & API Integrations",
+        description:
+          "Built backend services and integration points used across the product, including authentication flows, request validation, and reusable middleware patterns the rest of the team adopted.",
+        focusAreas: [
+          "Backend services",
+          "Auth & sessions",
+          "Middleware design",
+          "API reliability",
+        ],
+        tech: ["Node.js", "Express", "REST", "JWT"],
+      },
+    ],
   },
   {
     company: "Nexus Info",
@@ -441,6 +629,36 @@ export const experience: ExperienceEntry[] = [
     bullets: [
       "Developed ML classification models in Python using scikit-learn.",
       "Built data preprocessing pipelines and benchmarked model performance across datasets.",
+    ],
+    summary:
+      "Short, focused remote stint building classical-ML classification pipelines and supporting data tooling for client datasets.",
+    projects: [
+      {
+        category: "Machine Learning",
+        title: "Classification Model Pipelines",
+        description:
+          "Built end-to-end scikit-learn pipelines covering feature engineering, cross-validation, and model selection across logistic regression, random forest, and gradient boosting — packaged as reusable training scripts the team could re-run on new datasets.",
+        focusAreas: [
+          "Model selection",
+          "Cross-validation",
+          "Reproducible pipelines",
+          "Performance benchmarking",
+        ],
+        tech: ["Python", "scikit-learn", "pandas", "NumPy"],
+      },
+      {
+        category: "Data Engineering",
+        title: "EDA & Preprocessing Workflows",
+        description:
+          "Produced exploratory notebooks and data-quality reports for incoming client datasets, surfacing leakage, class imbalance, and feature drift before any model training began.",
+        focusAreas: [
+          "Exploratory data analysis",
+          "Data quality reporting",
+          "Feature engineering",
+          "Preprocessing pipelines",
+        ],
+        tech: ["Python", "pandas", "Matplotlib", "Jupyter"],
+      },
     ],
   },
   {
@@ -491,8 +709,8 @@ export const timeline = [
     type: "work",
   },
   {
-    year: "Jan–Jun 2025",
-    event: "Software Engineering Intern",
+    year: "Jan–Jul 2025",
+    event: "Software Engineer Intern",
     detail: "insightsoftware",
     type: "work",
   },

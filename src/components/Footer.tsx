@@ -29,8 +29,8 @@ export default function Footer() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <footer ref={ref} className="w-full bg-[var(--beige-50)] border-t border-[var(--beige-300)] px-8 md:px-16 pt-24 pb-12">
-      <div className="max-w-6xl mx-auto">
+    <footer ref={ref} className="w-full bg-[var(--beige-50)] border-t border-[var(--beige-300)] pt-24 pb-12">
+      <div className="px-6 md:px-16 max-w-6xl mx-auto">
 
         {/* Label */}
         <motion.p

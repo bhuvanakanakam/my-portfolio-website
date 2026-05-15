@@ -29,13 +29,13 @@ export default function Projects() {
     <motion.section
       ref={ref}
       id="projects"
-      className="px-6 md:px-16 py-28 md:py-36 border-t border-[#ddd0bc]/60"
+      className="py-28 md:py-36 border-t border-[#ddd0bc]/60"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="px-6 md:px-16 max-w-6xl mx-auto">
         <div className="mb-16">
           {/* Large decorative number */}
           <motion.p

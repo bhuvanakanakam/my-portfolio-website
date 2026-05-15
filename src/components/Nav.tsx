@@ -39,12 +39,13 @@ export default function Nav() {
       <motion.header
         animate={{ y: hidden ? -80 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 py-5 transition-all duration-300 ${
           scrolled
             ? "bg-[#faf8f5]/90 backdrop-blur-md border-b border-[#ddd0bc]/40"
             : ""
         }`}
       >
+        <div className="px-6 md:px-16 max-w-6xl mx-auto flex items-center justify-between">
         <div />
 
         {/* Desktop nav */}
@@ -100,6 +101,7 @@ export default function Nav() {
             className={`block w-6 h-px bg-[#2a2118] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2.5" : ""}`}
           />
         </motion.button>
+        </div>
       </motion.header>
 
       {/* Mobile menu */}

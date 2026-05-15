@@ -1,45 +1,74 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { experience } from "@/data";
 
 import SkillsGraph from "@/components/SkillsGraph";
 
 const RESUME_URL = "/resume.pdf";
 
+// ─── Inline icons (no extra dep) ──────────────────────────────────
+function BriefcaseIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="7" width="19" height="13.5" rx="2" />
+      <path d="M16 7V5.5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2V7" />
+      <path d="M2.5 12.5h19" />
+    </svg>
+  );
+}
+
+function ChevronIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
 // ─── Main component ───────────────────────────────────────────────
 export default function Resume() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  const SUMMARIES: Record<string, string> = {
-    "insightsoftware|Associate Software Engineer":
-      "Building enterprise finance features on CALUMO — ASP.NET Core, Azure OpenAI, Microsoft Graph API.",
-    "insightsoftware|Software Engineering Intern":
-      "Backend APIs and services for CDM Next, a financial data management platform.",
-    "Nebula|Software Engineering Intern":
-      "Full-stack features in React and Node.js, shipped end-to-end.",
-    "Nexus Info|Machine Learning Intern":
-      "ML classification models and data pipelines in Python and scikit-learn.",
-  };
 
   const workEntries = experience.filter(
     (e) => e.type === "work" && e.company !== "Mahindra University"
   );
   const eduEntry = experience.find((e) => e.type === "education");
 
+  const idOf = (e: (typeof workEntries)[number]) => `${e.company}|${e.role}`;
+  const [openId, setOpenId] = useState<string | null>(null);
+
   return (
     <motion.section
       ref={ref}
       id="resume"
-      className="px-6 md:px-16 py-20 border-t border-[#ddd0bc]/60"
+      className="py-20 border-t border-[#ddd0bc]/60"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="px-6 md:px-16 max-w-6xl mx-auto">
 
         {/* Ghost number */}
         <motion.p
@@ -103,65 +132,174 @@ export default function Resume() {
           </p>
         </motion.div>
 
-        <div className="mb-0">
-          {workEntries.map((entry, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.2 + i * 0.07 }}
-              className={`flex gap-8 py-8 border-b border-[#ede4d4] ${
-                entry.current
-                  ? "border-l-2 border-l-[#c4a882] pl-4 -ml-4 md:-ml-[1.125rem]"
-                  : ""
-              }`}
-            >
-              {/* Left block */}
-              <div className="w-36 md:w-48 shrink-0">
-                <p className="font-body text-xs tracking-wide text-[#9e8468] uppercase leading-relaxed mb-1">
-                  {entry.period}
-                </p>
-                <p className="font-body text-sm font-medium text-[#2a2118] leading-snug mb-0.5">
-                  {entry.company}
-                </p>
-                <p className="font-body text-xs text-[#9e8468]">
-                  {entry.location}
-                </p>
-              </div>
+        <div className="space-y-3">
+          {workEntries.map((entry, i) => {
+            const id = idOf(entry);
+            const isOpen = openId === id;
 
-              {/* Right block */}
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
-                  <h3 className="font-display text-xl font-light text-[#2a2118] leading-snug">
-                    {entry.role}
-                  </h3>
+            return (
+              <motion.article
+                key={id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.2 + i * 0.07 }}
+                className={`bg-[#f5f0e8] rounded-lg overflow-hidden border transition-colors ${
+                  isOpen
+                    ? "border-[#c9b89e]"
+                    : "border-[#ddd0bc]/60 hover:border-[#c9b89e]"
+                }`}
+              >
+                {/* ── Header row ─────────────────────────────────────── */}
+                <button
+                  type="button"
+                  onClick={() => setOpenId(isOpen ? null : id)}
+                  aria-expanded={isOpen}
+                  aria-controls={`${id}-panel`}
+                  data-cursor-hover
+                  className="w-full flex items-center gap-4 md:gap-5 px-5 md:px-6 py-5 text-left group"
+                >
+                  {/* briefcase */}
                   <span
-                    className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5 font-medium"
-                    style={{ background: "rgba(196,168,130,0.12)", color: "#9e8468" }}
+                    className="shrink-0 grid place-items-center w-11 h-11 rounded-md text-[#9e8468]"
+                    style={{ background: "rgba(196,168,130,0.18)" }}
                   >
-                    {entry.initials}
+                    <BriefcaseIcon className="w-5 h-5" />
                   </span>
-                  {entry.current && (
-                    <span
-                      className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5"
-                      style={{ background: "rgba(196,168,130,0.15)", color: "#9e8468" }}
-                    >
-                      Current
-                    </span>
-                  )}
+
+                  {/* title + company */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h3 className="font-display text-lg md:text-xl font-light text-[#2a2118] leading-snug">
+                        {entry.role}
+                      </h3>
+                      <span
+                        className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5 font-medium"
+                        style={{ background: "rgba(196,168,130,0.12)", color: "#9e8468" }}
+                      >
+                        {entry.initials}
+                      </span>
+                      {entry.current && (
+                        <span
+                          className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5"
+                          style={{ background: "rgba(196,168,130,0.18)", color: "#9e8468" }}
+                        >
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    <p className="font-body text-sm mt-1">
+                      <span className="text-[#7d6550] font-medium">{entry.company}</span>
+                      <span className="text-[#9e8468]"> · {entry.location}</span>
+                    </p>
+                  </div>
+
+                  {/* date range — flush right on desktop */}
+                  <span className="hidden sm:block shrink-0 font-body text-xs uppercase tracking-wide text-[#9e8468] tabular-nums">
+                    {entry.period}
+                  </span>
+
+                  {/* chevron */}
+                  <motion.span
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                    className="ml-1 shrink-0 grid place-items-center w-8 h-8 rounded-full border text-[#9e8468]"
+                    style={{ borderColor: "rgba(196,168,130,0.45)" }}
+                    aria-hidden="true"
+                  >
+                    <ChevronIcon className="w-4 h-4" />
+                  </motion.span>
+                </button>
+
+                {/* mobile-only date */}
+                <div className="sm:hidden px-5 -mt-3 pb-1 ml-[60px]">
+                  <span className="font-body text-[11px] uppercase tracking-wide text-[#9e8468] tabular-nums">
+                    {entry.period}
+                  </span>
                 </div>
 
-                {(() => {
-                  const summary = SUMMARIES[`${entry.company}|${entry.role}`];
-                  return summary ? (
-                    <p className="font-body font-light text-[#6b5744] text-sm leading-relaxed">
-                      {summary}
-                    </p>
-                  ) : null;
-                })()}
-              </div>
-            </motion.div>
-          ))}
+                {/* ── Expanded panel ────────────────────────────────── */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      id={`${id}-panel`}
+                      key="panel"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        height: { duration: 0.34, ease: [0.22, 1, 0.36, 1] },
+                        opacity: { duration: 0.22, ease: "easeOut" },
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 md:px-6 pb-6 pt-1">
+                        {entry.summary && (
+                          <blockquote className="border-l-2 border-l-[#c4a882] pl-4 mb-6 font-body italic text-sm md:text-[15px] leading-relaxed text-[#6b5744]">
+                            {entry.summary}
+                          </blockquote>
+                        )}
+
+                        {entry.projects && entry.projects.length > 0 && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {entry.projects.map((p) => (
+                              <div
+                                key={p.title}
+                                className="rounded-lg border border-[#ddd0bc]/60 bg-[#faf8f5] p-5 flex flex-col gap-3"
+                              >
+                                {p.category && (
+                                  <p className="font-body text-[10px] tracking-[0.22em] uppercase text-[#9e8468]">
+                                    {p.category}
+                                  </p>
+                                )}
+
+                                <h4 className="font-display text-[16px] font-light text-[#2a2118] leading-snug">
+                                  {p.title}
+                                </h4>
+
+                                <p className="font-body text-[13px] leading-relaxed text-[#6b5744]">
+                                  {p.description}
+                                </p>
+
+                                {p.focusAreas && p.focusAreas.length > 0 && (
+                                  <p className="font-body text-[11.5px] leading-relaxed text-[#9e8468]">
+                                    {p.focusAreas.map((f, idx) => (
+                                      <span key={f}>
+                                        {idx > 0 && (
+                                          <span className="mx-1.5 text-[#c4a882]">
+                                            ·
+                                          </span>
+                                        )}
+                                        {f}
+                                      </span>
+                                    ))}
+                                  </p>
+                                )}
+
+                                <div className="flex flex-wrap gap-1.5 mt-auto pt-1">
+                                  {p.tech.map((t) => (
+                                    <span
+                                      key={t}
+                                      className="font-body text-[10.5px] px-2.5 py-1 rounded-full"
+                                      style={{
+                                        background: "rgba(196,168,130,0.18)",
+                                        color: "#9e8468",
+                                      }}
+                                    >
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.article>
+            );
+          })}
         </div>
 
         {/* ── EDUCATION ──────────────────────────────────────────── */}

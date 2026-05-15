@@ -15,13 +15,13 @@ export default function Blog() {
     <motion.section
       ref={ref}
       id="blog"
-      className="px-6 md:px-16 py-28 md:py-36 border-t border-[#ddd0bc]/60 bg-[#f5f0e8]"
+      className="py-28 md:py-36 border-t border-[#ddd0bc]/60 bg-[#f5f0e8]"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="px-6 md:px-16 max-w-6xl mx-auto">
         {/* Header */}
         <motion.p
           initial={{ opacity: 0 }}
