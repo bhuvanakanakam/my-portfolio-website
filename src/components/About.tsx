@@ -23,16 +23,16 @@ export default function About() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
-        className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-[-2rem] select-none pointer-events-none"
+        className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
         aria-hidden="true"
       >
-        02
+        01
       </motion.p>
       <motion.p
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
-        className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468] mb-12 relative"
+        className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-12 relative"
       >
         About
       </motion.p>
@@ -55,11 +55,10 @@ export default function About() {
           className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5"
         >
           Something catches me and I follow it all the way in. I danced
-          Kuchipudi until my feet hurt and ended up with a Guinness World Record
-          before I fully understood how that happened. I graduated in the top 10
-          of my batch, held a merit scholarship all four years, and still found
-          time to fence nationally, fundraise seriously, and lead a student body.
-          When I care about something, I don&apos;t do it lightly.
+          Kuchipudi until my feet hurt and ended up with a Guinness World Record.
+          I graduated in the top 10 of my batch, held a merit scholarship all
+          four years, and still found time to fence nationally, fundraise
+          seriously, and lead.
         </motion.p>
 
         <motion.p
@@ -70,10 +69,9 @@ export default function About() {
         >
           That same energy runs through how I work. Whether I&apos;m tracing a
           production bug at midnight or building something just to see if it
-          can be done, I follow the same thread. I&apos;m always looking for people
-          who bring that kind of intensity to what they love. If you want to
-          compare F1 strategies, talk about what drives you, or just connect,
-          I&apos;m absolutely your person.
+          can be done, I follow the same thread. If you want to compare F1
+          strategies, talk about what drives you, or just connect — I&apos;m
+          absolutely your person.
         </motion.p>
       </div>
 
@@ -84,9 +82,8 @@ export default function About() {
         transition={{ duration: 0.6, delay: 0.4 }}
         className="border-t border-[#ddd0bc]/60 pt-14"
       >
-        <p className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468] mb-8">
+        <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-8">
           Outside the terminal
-
         </p>
         <InterestsGrid />
       </motion.div>

@@ -27,15 +27,15 @@ export default function Blog() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#c9b89e]/50 mb-[-2rem] select-none pointer-events-none"
+          className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#c9b89e]/50 mb-4 select-none pointer-events-none"
           aria-hidden="true"
         >
-          04
+          05
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468] mb-4 relative"
+          className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-4 relative"
         >
           Writing
         </motion.p>
@@ -44,7 +44,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-4xl md:text-5xl font-light text-[#2a2118] mb-14 relative"
+          className="font-display text-4xl md:text-5xl font-light text-[#2a2118] leading-tight mb-8"
         >
           How I build, learn, and work.
         </motion.h2>
@@ -85,7 +85,7 @@ export default function Blog() {
                 {featured.title}
               </h3>
               {featured.excerpt && (
-                <p className="font-body font-light text-[#6b5744] text-sm leading-[1.85] max-w-2xl mb-5">
+                <p className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5 max-w-2xl">
                   {featured.excerpt}
                 </p>
               )}

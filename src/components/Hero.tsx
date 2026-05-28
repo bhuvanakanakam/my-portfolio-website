@@ -7,54 +7,50 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const SHOW_CMU = false;
 
-const TYPE_PHRASES = [
-  "I build things I care about.",
-  "I build things that scale.",
-  "I ship things that matter.",
-];
+const TYPE_PHRASE = "I build things that scale.";
 
 export default function Hero() {
-  const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
   // Start typing once entrance animations are done (~1700ms)
   const [started, setStarted] = useState(false);
+  const [typingComplete, setTypingComplete] = useState(false);
+  // Cursor visibility — mounts when typing starts, unmounts ~3s after typing ends
+  const [showCursor, setShowCursor] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setStarted(true), 1700);
+    const t = setTimeout(() => {
+      setStarted(true);
+      setShowCursor(true);
+    }, 1700);
     return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
-    if (!started) return;
+    if (!started || typingComplete) return;
 
-    const currentPhrase = TYPE_PHRASES[phraseIndex];
-    let timeoutId: ReturnType<typeof setTimeout>;
-
-    if (!isDeleting && charIndex < currentPhrase.length) {
-      timeoutId = setTimeout(() => setCharIndex((p) => p + 1), 60);
-    } else if (!isDeleting && charIndex === currentPhrase.length) {
-      timeoutId = setTimeout(() => setIsDeleting(true), 2200);
-    } else if (isDeleting && charIndex > 0) {
-      timeoutId = setTimeout(() => setCharIndex((p) => p - 1), 35);
-    } else {
-      timeoutId = setTimeout(() => {
-        setIsDeleting(false);
-        setPhraseIndex((p) => (p + 1) % TYPE_PHRASES.length);
-      }, 400);
+    if (charIndex < TYPE_PHRASE.length) {
+      const t = setTimeout(() => setCharIndex((p) => p + 1), 60);
+      return () => clearTimeout(t);
     }
 
-    return () => clearTimeout(timeoutId);
-  }, [started, phraseIndex, charIndex, isDeleting]);
+    // Typing reached the end
+    setTypingComplete(true);
+  }, [started, charIndex, typingComplete]);
 
-  const typedText = TYPE_PHRASES[phraseIndex].slice(0, charIndex);
+  useEffect(() => {
+    if (!typingComplete) return;
+    const t = setTimeout(() => setShowCursor(false), 3000);
+    return () => clearTimeout(t);
+  }, [typingComplete]);
+
+  const typedText = TYPE_PHRASE.slice(0, charIndex);
 
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-start justify-end px-6 md:px-16 pb-20 md:pb-24 overflow-x-clip">
+    <section className="relative min-h-screen flex flex-col justify-end pb-20 md:pb-24 overflow-x-clip">
       {/* Large decorative letter */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -77,14 +73,14 @@ export default function Hero() {
         className="absolute top-[42%] left-0 right-0 h-px bg-[#ddd0bc]/60"
       />
 
-      <div className="relative z-10">
+      <div className="relative z-10 px-6 md:px-16 max-w-6xl mx-auto w-full">
         {/* Overline */}
         <div className="overflow-hidden mb-6">
           <motion.p
             initial={{ y: "110%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
-            className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468]"
+            className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium"
           >
             Software Engineer{SHOW_CMU && " · CMU Master's in Information Systems, 2026"}
           </motion.p>
@@ -113,7 +109,7 @@ export default function Hero() {
               <span className="italic text-[#9e8468]">
                 {typedText}
               </span>
-              {started && <span className="hero-type-cursor text-[#9e8468]">|</span>}
+              {showCursor && <span className="hero-type-cursor text-[#2a2118]">|</span>}
             </motion.div>
           </div>
         </h1>
@@ -125,7 +121,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
           className="font-body font-light text-[#6b5744] text-base md:text-lg mt-8 max-w-lg leading-relaxed"
         >
-          Building, exploring, and figuring life out in my 20s{SHOW_CMU && ", incoming grad at CMU"}.
+          Software engineer building scalable backend systems and AI-native user expereinces{SHOW_CMU && ", incoming grad at CMU"}.
         </motion.p>
 
         {/* CTAs */}
@@ -162,15 +158,16 @@ export default function Hero() {
       <style jsx>{`
         @keyframes heroBlink {
           0%,
-          100% {
+          49% {
             opacity: 1;
           }
-          50% {
+          50%,
+          100% {
             opacity: 0;
           }
         }
         .hero-type-cursor {
-          animation: heroBlink 0.7s infinite;
+          animation: heroBlink 1s steps(1, end) infinite;
         }
       `}</style>
     </section>

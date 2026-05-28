@@ -49,18 +49,6 @@ export const projects = [
     story:
       "This started as a research question: can you algorithmically compose music that evokes a specific emotional state (Rasa) from Indian classical aesthetics? I implemented FC-means evolutionary clustering and an ALI-GAN pipeline, running experiments on a DGX supercomputer. The hardest bug was a multiprocessing seed replication issue that was silently killing result diversity; finding it took three days. The work contributed to an IEEE Transactions submission.",
   },
-  // {
-  //   id: "recon",
-  //   title: "Project RECON",
-  //   description:
-  //     "An 8-node Raspberry Pi 4B compute cluster with VLAN networking, GlusterFS distributed storage, Slurm + OpenMPI for parallel computation, and LDAP for cross-node authentication. Fully funded ($2,000) by the university — used by 400+ students.",
-  //   tags: ["Raspberry Pi", "Linux", "GlusterFS", "Slurm", "OpenMPI"],
-  //   github: "https://github.com/bhuvanakanakam",
-  //   color: "#f5f0e8",
-  //   year: "2024",
-  //   story:
-  //     "RECON (Raspberry Pi Engineered Cluster Over Net) grew out of a frustration: students had no practical distributed computing environment to actually run coursework on. I pitched the idea to Enigma, our CS club, wrote the proposal, got $2,000 approved, and built the whole thing from scratch. Today it's used by 400+ students as their hands-on distributed computing lab. Nothing beats seeing it actually being used.",
-  // },
   {
     id: "3",
     title: "Decentralized File Storage System",
@@ -523,11 +511,11 @@ export const experience: ExperienceEntry[] = [
       "Built backend APIs and services in C# / .NET 8 across feature development and production releases.",
     ],
     summary:
-      "Worked as a full stack engineering intern contributing to enterprise finance & planning product releases for CALUMO.",
+      "Worked as a full stack engineering intern contributing to enterprise finance & planning product releases for CDM Modernization.",
     projects: [
       {
         category: "Onboarding Bootcamp",
-        title: "Full-Stack E-Commerce Demo",
+        title: "Full-Stack E-Commerce",
         description:
           "Built a full-stack e-commerce web app as the intern cohort's onboarding project — product catalogue, cart, ASP.NET Identity auth, and a SQL Server backend. Won Best Demo in the cohort showcase.",
         focusAreas: [
@@ -542,7 +530,7 @@ export const experience: ExperienceEntry[] = [
         category: "GA Release Engineering",
         title: "Roll Forward & Export Systems",
         description:
-          "Delivered full stack enterprise workflows as part of CALUMO's GA release, contributing across frontend and backend systems.",
+          "Delivered full stack enterprise workflows as part of CDM Next's GA release, contributing across frontend and backend systems.",
         focusAreas: [
           "Full stack engineering",
           "Enterprise workflows",
@@ -567,7 +555,7 @@ export const experience: ExperienceEntry[] = [
         category: "Customer-Facing Web Engineering",
         title: "Platform & Web Experiences",
         description:
-          "Worked on customer-facing web workflows, platform integrations, and internal tooling initiatives across the CALUMO ecosystem.",
+          "Worked on customer-facing web workflows, platform integrations, and internal tooling initiatives across the CDM Next's ecosystem.",
         focusAreas: [
           "Frontend engineering",
           "Platform integrations",

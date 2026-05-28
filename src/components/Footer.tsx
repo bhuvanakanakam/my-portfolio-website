@@ -37,7 +37,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="font-body text-xs tracking-[0.3em] uppercase text-[var(--beige-600)] mb-6"
+          className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-6"
         >
           Get in touch
         </motion.p>
@@ -68,7 +68,7 @@ export default function Footer() {
               data-cursor-hover
             >
               <div>
-                <p className="font-body text-[10px] tracking-[0.28em] uppercase text-[var(--beige-600)] mb-3 group-hover:text-[var(--text-secondary)] transition-colors duration-200">
+                <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-3 group-hover:text-[var(--text-secondary)] transition-colors duration-200">
                   {link.label}
                 </p>
                 <p className="font-body text-sm text-[var(--text-secondary)] leading-snug break-all">

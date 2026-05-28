@@ -42,25 +42,25 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8 }}
-            className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-[-2rem] select-none pointer-events-none"
+            className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
             aria-hidden="true"
           >
-            01
+            03
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
-            className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468] mb-4 relative"
+            className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-4 relative"
           >
-            Selected Work
+            Projects
           </motion.p>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-light text-[#2a2118] relative"
+            className="font-display text-4xl md:text-5xl font-light text-[#2a2118] leading-tight mb-8"
           >
             Things I&apos;ve built.
           </motion.h2>

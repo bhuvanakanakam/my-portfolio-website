@@ -9,67 +9,28 @@ import {
   Camera,
   MapPin,
   BookOpen,
+  Users,
+  Swords,
 } from "lucide-react";
 
 type InterestItem = {
   icon: React.ElementType;
   label: string;
   tag: string;
-  wide?: boolean;
-  sports?: string[];
+  accent?: string;
 };
 
-// Grid layout (4-col):
-// Row 1: Dance(2) + F1(1) + Cinema & TV(1)       = 4
-// Row 2: Athletics(2) + Music(1) + Photography(1) = 4
-// Row 3: Travel(2) + Reading(2)                   = 4
 const interests: InterestItem[] = [
-  {
-    icon: Music2,
-    label: "Dance",
-    tag: "Kuchipudi · Guinness World Record",
-    wide: true,
-    sports: ["Kuchipudi", "Hip Hop", "Bollywood", "Pop", "Contemporary"],
-  },
-  {
-    icon: Gauge,
-    label: "Formula 1",
-    tag: "Sector times, tire deg, lap telemetry",
-  },
-  {
-    icon: Clapperboard,
-    label: "Cinema & TV",
-    tag: "Movies, rereleases, anime, strong opinions",
-  },
-  {
-    icon: Trophy,
-    label: "Athletics",
-    tag: "National · AP State · Modern Pentathlon",
-    wide: true,
-    sports: ["Fencing", "Swimming", "Running", "Horse Riding", "Rifle Shooting", "Basketball", "Badminton"],
-  },
-  {
-    icon: Music,
-    label: "Music",
-    tag: "Carnatic vocals · guitar",
-  },
-  {
-    icon: Camera,
-    label: "Photography",
-    tag: "Events, travel, candid",
-  },
-  {
-    icon: MapPin,
-    label: "Travel",
-    tag: "Always planning the next one",
-    wide: true,
-  },
-  {
-    icon: BookOpen,
-    label: "Reading",
-    tag: "Wide taste, dog-ears everything",
-    wide: true,
-  },
+  { icon: Music2,       label: "Dance",        tag: "Kuchipudi · Guinness World Record",         accent: "#c4a882" },
+  { icon: Trophy,       label: "Athletics",    tag: "Fencing · Modern Pentathlon · 3× AP Gold",  accent: "#8a9e6a" },
+  { icon: Gauge,        label: "Formula 1",    tag: "Data nerd, race weekend addict",             accent: "#c47a5a" },
+  { icon: Music,        label: "Music",        tag: "Carnatic vocals · guitar",                  accent: "#9a7ab8" },
+  { icon: Clapperboard, label: "Cinema & TV",  tag: "Movies, anime, strong opinions",            accent: "#7a9ab8" },
+  { icon: Camera,       label: "Photography",  tag: "Events, travel, candid",                    accent: "#b8987a" },
+  { icon: MapPin,       label: "Travel",       tag: "Café hopping to out-of-town adventures",    accent: "#7ab898" },
+  { icon: BookOpen,     label: "Reading",      tag: "Wide taste, dog-ears everything",           accent: "#b87a8a" },
+  { icon: Users,        label: "Community",    tag: "Fundraising & outreach causes",             accent: "#8a7ab8" },
+  { icon: Swords,       label: "Board Games",  tag: "Strangers welcome, strategy preferred",     accent: "#b8a07a" },
 ];
 
 const GRAD_ID = "kbt-grad";
@@ -92,50 +53,36 @@ export default function InterestsGrid() {
     <>
       <GradientDef />
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
         {interests.map((item, i) => {
           const Icon = item.icon;
-          const isAthletics = !!item.sports;
-
+          const isLeft = i % 2 === 0;
           return (
             <div
               key={i}
-              className={`group relative rounded-xl border border-[var(--beige-200)] bg-[var(--beige-50)] p-4 cursor-default overflow-hidden transition-colors duration-200 hover:bg-[var(--beige-100)] hover:border-[var(--beige-300)]${item.wide ? " col-span-2" : ""}`}
+              className={[
+                "group flex items-start gap-3 py-3.5 px-3",
+                "border-b border-[#e8dcc8]",
+                "hover:bg-[var(--beige-50)] transition-colors duration-150 cursor-default",
+                isLeft ? "sm:pr-6 sm:border-r" : "sm:pl-6",
+                i >= interests.length - 2 ? "last:border-b-0" : "",
+              ].join(" ")}
             >
-              {/* Icon */}
-              <div className="mb-3">
+              <div className="mt-0.5 shrink-0 w-7 h-7 rounded-md bg-[var(--beige-100)] border border-[var(--beige-200)] flex items-center justify-center">
                 <Icon
-                  size={22}
-                  style={{ stroke: `url(#${GRAD_ID})`, fill: "none" }}
+                  size={14}
+                  style={{ stroke: item.accent || "#c4a882", fill: "none" }}
                   strokeWidth={1.5}
                 />
               </div>
-
-              {/* Label */}
-              <p className="font-body text-sm font-medium text-[var(--text-primary)] leading-snug">
-                {item.label}
-              </p>
-
-              {isAthletics ? (
-                /* Athletics — always visible on mobile, hover-reveal on desktop */
-                <div className="max-h-20 opacity-100 overflow-hidden mt-1 sm:opacity-0 sm:max-h-0 sm:group-hover:opacity-100 sm:group-hover:max-h-12 transition-all duration-300">
-                  <div className="flex flex-wrap gap-1.5">
-                    {item.sports!.map((sport) => (
-                      <span
-                        key={sport}
-                        className="font-body text-[10px] px-2 py-0.5 rounded-full border border-[var(--beige-400)] text-[var(--text-secondary)] bg-[var(--beige-200)] whitespace-nowrap"
-                      >
-                        {sport}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                /* Standard — always visible on mobile, hover-reveal on desktop */
-                <p className="font-body text-[11px] text-[var(--text-secondary)] leading-snug mt-1 opacity-100 translate-y-0 sm:opacity-0 sm:-translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-200">
+              <div className="min-w-0">
+                <p className="font-body text-sm font-medium text-[var(--text-primary)] leading-snug">
+                  {item.label}
+                </p>
+                <p className="font-body text-[11px] text-[var(--text-secondary)] leading-snug mt-0.5">
                   {item.tag}
                 </p>
-              )}
+              </div>
             </div>
           );
         })}

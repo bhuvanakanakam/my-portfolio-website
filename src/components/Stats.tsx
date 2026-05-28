@@ -73,7 +73,7 @@ export default function Stats() {
                   />
                 )}
               </p>
-              <p className="font-body text-[10px] tracking-[0.28em] uppercase text-[#9e8468]">
+              <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium">
                 {stat.label}
               </p>
             </motion.div>

@@ -75,17 +75,17 @@ export default function Resume() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-[-2rem] select-none pointer-events-none"
+          className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
           aria-hidden="true"
         >
-          05
+          02
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          className="font-body text-xs tracking-[0.3em] uppercase text-[#9e8468] mb-4 relative"
+          className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-4 relative"
         >
-          Resume
+          Work
         </motion.p>
 
         {/* Heading + Download CV */}
@@ -94,7 +94,7 @@ export default function Resume() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-light text-[#2a2118]"
+            className="font-display text-4xl md:text-5xl font-light text-[#2a2118] leading-tight mb-8"
           >
             Experience &amp; skills.
           </motion.h2>
@@ -127,7 +127,7 @@ export default function Resume() {
           transition={{ duration: 0.4, delay: 0.15 }}
           className="mb-4"
         >
-          <p className="font-body text-[10px] tracking-[0.28em] uppercase text-[#9e8468] mb-8">
+          <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-8">
             Experience
           </p>
         </motion.div>
@@ -310,7 +310,7 @@ export default function Resume() {
             transition={{ duration: 0.45, delay: 0.55 }}
             className="mt-16"
           >
-            <p className="font-body text-[10px] tracking-[0.28em] uppercase text-[#9e8468] mb-8">
+            <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-8">
               Education
             </p>
 
@@ -368,7 +368,7 @@ export default function Resume() {
           transition={{ duration: 0.5, delay: 0.65 }}
           className="mt-16"
         >
-          <p className="font-body text-[10px] tracking-[0.28em] uppercase text-[#9e8468] mb-8">
+          <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-8">
             Skills
           </p>
           <SkillsGraph />
