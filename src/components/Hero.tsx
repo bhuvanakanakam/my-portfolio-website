@@ -50,7 +50,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-20 md:pb-24 overflow-x-clip">
+    <section className="relative min-h-screen flex flex-col items-start justify-end px-6 md:px-16 pb-20 md:pb-24 overflow-x-clip">
       {/* Large decorative letter */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -73,7 +73,7 @@ export default function Hero() {
         className="absolute top-[42%] left-0 right-0 h-px bg-[#ddd0bc]/60"
       />
 
-      <div className="relative z-10 px-6 md:px-16 max-w-6xl mx-auto w-full">
+      <div className="relative z-10">
         {/* Overline */}
         <div className="overflow-hidden mb-6">
           <motion.p
