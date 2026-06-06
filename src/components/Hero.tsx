@@ -7,7 +7,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const SHOW_CMU = false;
 
-const TYPE_PHRASE = "I build things that scale.";
+const TYPE_PHRASE = "I build what won't let go.";
 
 export default function Hero() {
   const [charIndex, setCharIndex] = useState(0);
@@ -82,7 +82,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
             className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium"
           >
-            Software Engineer{SHOW_CMU && " · CMU Master's in Information Systems, 2026"}
+            Backend &amp; AI Engineer{SHOW_CMU && " · CMU Master's in Information Systems, 2026"}
           </motion.p>
         </div>
 
@@ -121,7 +121,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
           className="font-body font-light text-[#6b5744] text-base md:text-lg mt-8 max-w-lg leading-relaxed"
         >
-          Software engineer building scalable backend systems and AI-native user expereinces{SHOW_CMU && ", incoming grad at CMU"}.
+          Backend systems, AI tooling, and the production bugs I trace at midnight{SHOW_CMU && ", incoming grad at CMU"}.
         </motion.p>
 
         {/* CTAs */}

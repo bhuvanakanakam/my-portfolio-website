@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
+import { GraduationCap } from "lucide-react";
 import { experience } from "@/data";
 
 import SkillsGraph from "@/components/SkillsGraph";
@@ -318,12 +319,12 @@ export default function Resume() {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                 {/* Left: institution info */}
                 <div>
-                  <div className="flex items-baseline gap-3 mb-1">
+                  <div className="flex items-center gap-3 mb-1">
                     <span
-                      className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5 font-medium"
-                      style={{ background: "rgba(196,168,130,0.18)", color: "#9e8468" }}
+                      className="shrink-0 grid place-items-center w-11 h-11 rounded-md text-[#9e8468]"
+                      style={{ background: "rgba(196,168,130,0.18)" }}
                     >
-                      {eduEntry.initials}
+                      <GraduationCap className="w-5 h-5" strokeWidth={1.5} />
                     </span>
                     <h3 className="font-display text-lg font-light text-[#2a2118]">
                       {eduEntry.role}

@@ -378,7 +378,6 @@ export type ExperienceProject = {
 
 export type ExperienceEntry = {
   company: string;
-  initials: string;
   role: string;
   period: string;
   location: string;
@@ -393,7 +392,6 @@ export type ExperienceEntry = {
 export const experience: ExperienceEntry[] = [
   {
     company: "insightsoftware",
-    initials: "ISW",
     role: "Associate Software Engineer",
     period: "Jul 2025 – Present",
     location: "Hyderabad, India",
@@ -501,7 +499,6 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: "insightsoftware",
-    initials: "ISW",
     role: "Software Engineer Intern",
     period: "Jan 2025 – Jul 2025",
     location: "Hyderabad, India",
@@ -567,7 +564,6 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: "Nebula",
-    initials: "NB",
     role: "Software Engineering Intern",
     period: "May 2024 – Aug 2024",
     location: "Remote",
@@ -609,7 +605,6 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: "Nexus Info",
-    initials: "NX",
     role: "Machine Learning Intern",
     period: "Apr 2024 – May 2024",
     location: "Remote",
@@ -651,7 +646,6 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: "Mahindra University",
-    initials: "MU",
     role: "Research Assistant",
     period: "2024",
     location: "Hyderabad, India",
@@ -664,7 +658,6 @@ export const experience: ExperienceEntry[] = [
   // CMU_HIDDEN — re-enable by removing the comment markers when ready to go public
   /* {
     company: "Carnegie Mellon University",
-    initials: "CMU",
     role: "MISM BIDA",
     period: "Aug 2026",
     location: "Pittsburgh, PA",
@@ -673,7 +666,6 @@ export const experience: ExperienceEntry[] = [
   }, */
   {
     company: "Mahindra University",
-    initials: "MU",
     role: "B.Tech Computer Science",
     period: "2021 – Jun 2025",
     location: "Hyderabad, India",
