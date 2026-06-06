@@ -173,12 +173,6 @@ export default function Resume() {
                       <h3 className="font-display text-lg md:text-xl font-light text-[#2a2118] leading-snug">
                         {entry.role}
                       </h3>
-                      <span
-                        className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5 font-medium"
-                        style={{ background: "rgba(196,168,130,0.12)", color: "#9e8468" }}
-                      >
-                        {entry.initials}
-                      </span>
                       {entry.current && (
                         <span
                           className="font-body text-[9px] tracking-widest uppercase px-2 py-0.5"
