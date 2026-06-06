@@ -49,17 +49,18 @@ export default function About() {
             <span className="italic text-[#9e8468]">Fully in,</span> or not at all.
           </motion.h2>
 
-          <motion.p
+         <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5"
           >
-            Something catches me and I follow it all the way in. I danced
-            Kuchipudi until my feet hurt and ended up with a Guinness World Record.
-            I graduated in the top 10 of my batch, held a merit scholarship all
-            four years, and still found time to fence nationally, fundraise
-            seriously, and lead.
+            Fully in, or not at all. That's been the pattern for most things in my
+            life. I spent years learning Kuchipudi and ended up as part of a Guinness
+            World Record performance. I graduated in the top 10 of my class, held a
+            merit scholarship throughout college, competed nationally in fencing,
+            led student initiatives, and somehow found time to pursue a dozen other
+            interests along the way.
           </motion.p>
 
           <motion.p
@@ -68,13 +69,13 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="font-body font-light text-[#6b5744] leading-relaxed text-base"
           >
-            That same energy runs through how I work. Whether I&apos;m tracing a
-            production bug at midnight or building something just to see if it
-            can be done, I follow the same thread. If you want to compare F1
-            strategies, talk about what drives you, or just connect — I&apos;m
-            absolutely your person.
+            That same mindset carries into my work. I like understanding systems,
+            solving difficult problems, and building things that make a difference.
+            Whether it's tracking down a stubborn bug, automating away manual work,
+            or experimenting with a new idea just because it's interesting, I tend
+            to go all the way down the rabbit hole. Curiosity has taken me far so
+            far, and I'm not planning on stopping anytime soon.
           </motion.p>
-        </div>
 
         {/* Interests */}
         <motion.div
