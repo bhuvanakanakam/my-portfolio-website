@@ -49,7 +49,7 @@ export default function About() {
             <span className="italic text-[#9e8468]">Fully in,</span> or not at all.
           </motion.h2>
 
-         <motion.p
+          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -71,11 +71,11 @@ export default function About() {
           >
             That same mindset carries into my work. I like understanding systems,
             solving difficult problems, and building things that make a difference.
-            Whether it's tracking down a stubborn bug, automating away manual work,
+            Whether it's tracking down a bug, automating away manual work,
             or experimenting with a new idea just because it's interesting, I tend
-            to go all the way down the rabbit hole. Curiosity has taken me far so
-            far, and I'm not planning on stopping anytime soon.
+            to go all the way down the rabbit hole.
           </motion.p>
+        </div>
 
         {/* Interests */}
         <motion.div
