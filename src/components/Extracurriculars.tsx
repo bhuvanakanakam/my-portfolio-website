@@ -9,66 +9,11 @@ type Award = {
   year: string;
   category: Category;
   title: string;
-  description: string;
+  description?: string;
 };
 
-const awards: Award[] = [
-  {
-    year: "2013",
-    category: "Arts & Culture",
-    title: "Guinness World Record · Kuchipudi",
-    description:
-      "Part of the record-breaking Kuchipudi performance — danced Tharangam on the rim of a brass plate as part of one of the largest classical dance gatherings ever recorded.",
-  },
-  {
-    year: "2016",
-    category: "Social Impact",
-    title: "Raised $300K for Chennai Flood Relief",
-    description:
-      "Coordinated a large-scale fundraising and relief initiative during the Chennai floods, helping channel resources and aid to affected communities.",
-  },
-  {
-    year: "Jan 2019",
-    category: "Athletics",
-    title: "Modern Pentathlon · Seniors 2nd Place",
-    description:
-      "Took second at the Modern Pentathlon Seniors Championship — competing across swimming, fencing, horse riding, rifle shooting, and running among 100+ entrants.",
-  },
-  {
-    year: "Jul 2019",
-    category: "Athletics",
-    title: "6th AP State Softball · Bronze",
-    description:
-      "Bronze medal at the Andhra Pradesh State Softball Championship — pitcher and second baseman through the run.",
-  },
-  {
-    year: "Nov 2019",
-    category: "Athletics",
-    title: "27th Junior National Fencing Championship",
-    description:
-      "Competed at the Junior National Fencing Championship in Foil — representing Andhra Pradesh against fencers from across India.",
-  },
-  {
-    year: "Dec 2019",
-    category: "Athletics",
-    title: "11th Federation Cup · National Softball",
-    description:
-      "Played for the Indian national softball team at the Federation Cup — pitcher and second baseman across the championship rounds.",
-  },
-  {
-    year: "2019 · 2020 · 2022",
-    category: "Athletics",
-    title: "3× AP State Gold Medal · Fencing",
-    description:
-      "Three Gold medals at the Andhra Pradesh State Fencing Championship (U-20, Foil) across three separate years — sustained competitive performance under pressure.",
-  },
-  {
-    year: "2021 – 2025",
-    category: "Academic",
-    title: "4-Year Merit Scholarship",
-    description:
-      "Held a full merit scholarship across all four years at Mahindra University, awarded for exceptional GPA — top 10 of the batch each academic year.",
-  },
+// The three that define the story — full cards with descriptions.
+const featured: Award[] = [
   {
     year: "Oct 2023",
     category: "Tech",
@@ -77,18 +22,62 @@ const awards: Award[] = [
       "Led the team to first at Dell's national Hack-to-Hire — built a synthetic data generation platform with schema control in a 24-hour sprint against hundreds of participants.",
   },
   {
+    year: "2013",
+    category: "Arts & Culture",
+    title: "Guinness World Record · Kuchipudi",
+    description:
+      "Part of the record-breaking Kuchipudi performance — danced Tharangam on the rim of a brass plate as part of one of the largest classical dance gatherings ever recorded.",
+  },
+  {
+    year: "2021 – 2025",
+    category: "Academic",
+    title: "4-Year Merit Scholarship",
+    description:
+      "Held a full merit scholarship across all four years at Mahindra University, awarded for exceptional GPA — top 10 of the batch each academic year.",
+  },
+];
+
+// Everything else — one quiet line each.
+const honors: Award[] = [
+  {
     year: "Feb 2024",
     category: "Tech",
-    title: "1st Place · Embedded Challenge",
-    description:
-      "Won the Mahindra University Embedded Challenge — designed an Arduino musical-note system (C, D, E, F) and a single-color pathway person counter alongside a team of three.",
+    title: "1st Place · Embedded Challenge, Mahindra University",
   },
   {
     year: "Feb 2024",
     category: "Tech",
-    title: "1st Place · UI/UX Challenge",
-    description:
-      "Won the Enigma Club UI/UX Challenge at Mahindra University — designed an interactive browser concept end-to-end in Figma.",
+    title: "1st Place · Enigma Club UI/UX Challenge",
+  },
+  {
+    year: "2019 – 2022",
+    category: "Athletics",
+    title: "3× State Gold Medal · Fencing (U-20, Foil)",
+  },
+  {
+    year: "Dec 2019",
+    category: "Athletics",
+    title: "Federation Cup · National Softball Championship",
+  },
+  {
+    year: "Nov 2019",
+    category: "Athletics",
+    title: "Junior National Fencing Championship · Foil",
+  },
+  {
+    year: "Jan 2019",
+    category: "Athletics",
+    title: "2nd Place · Modern Pentathlon, Seniors",
+  },
+  {
+    year: "Jul 2019",
+    category: "Athletics",
+    title: "Bronze · State Softball Championship",
+  },
+  {
+    year: "2016",
+    category: "Social Impact",
+    title: "Chennai Flood Relief Fundraising · $300K raised",
   },
 ];
 
@@ -105,6 +94,18 @@ const categoryStyles: Record<Category, { bg: string; color: string }> = {
 
 const EYEBROW =
   "font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium";
+
+function CategoryBadge({ category }: { category: Category }) {
+  const cat = categoryStyles[category];
+  return (
+    <span
+      className="font-body text-[10px] tracking-[0.18em] uppercase font-medium px-2.5 py-1 rounded-full whitespace-nowrap"
+      style={{ background: cat.bg, color: cat.color }}
+    >
+      {category}
+    </span>
+  );
+}
 
 export default function Extracurriculars() {
   const ref = useRef<HTMLElement>(null);
@@ -127,6 +128,7 @@ export default function Extracurriculars() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
           className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
+          aria-hidden="true"
         >
           04
         </motion.p>
@@ -152,43 +154,64 @@ export default function Extracurriculars() {
           <span className="italic text-[#9e8468]">achievements</span>.
         </motion.h2>
 
-        {/* Awards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {awards.map((award, i) => {
-            const cat = categoryStyles[award.category];
-            return (
-              <motion.article
-                key={award.title}
-                initial={{ opacity: 0, y: 16 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.15 + i * 0.07 }}
-                className="rounded-lg border border-[#ddd0bc]/60 bg-[#faf8f5] p-6 md:p-7 flex flex-col gap-4"
-              >
-                {/* Year + Category */}
-                <div className="flex items-center justify-between gap-3">
-                  <p className="font-body text-xs tracking-[0.22em] uppercase text-[#9e8468] font-medium tabular-nums">
-                    {award.year}
-                  </p>
-                  <span
-                    className="font-body text-[10px] tracking-[0.18em] uppercase font-medium px-2.5 py-1 rounded-full whitespace-nowrap"
-                    style={{ background: cat.bg, color: cat.color }}
-                  >
-                    {award.category}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-display text-xl md:text-2xl font-light text-[#2a2118] leading-tight">
-                  {award.title}
-                </h3>
-
-                {/* Description */}
-                <p className="font-body font-light text-[#6b5744] leading-relaxed text-sm md:text-[15px]">
-                  {award.description}
+        {/* Featured — three cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-16 md:mb-20">
+          {featured.map((award, i) => (
+            <motion.article
+              key={award.title}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.45, delay: 0.15 + i * 0.08 }}
+              className="rounded-lg border border-[#ddd0bc]/60 bg-[#faf8f5] p-6 md:p-7 flex flex-col gap-4 border-t-2 border-t-[#c4a882]"
+            >
+              {/* Year + Category */}
+              <div className="flex items-center justify-between gap-3">
+                <p className="font-body text-xs tracking-[0.22em] uppercase text-[#9e8468] font-medium tabular-nums">
+                  {award.year}
                 </p>
-              </motion.article>
-            );
-          })}
+                <CategoryBadge category={award.category} />
+              </div>
+
+              {/* Title */}
+              <h3 className="font-display text-xl md:text-2xl font-light text-[#2a2118] leading-tight">
+                {award.title}
+              </h3>
+
+              {/* Description */}
+              <p className="font-body font-light text-[#6b5744] leading-relaxed text-sm md:text-[15px]">
+                {award.description}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* More honors — compact editorial list */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="font-body text-xs tracking-[0.28em] uppercase text-[#9e8468] font-medium mb-2"
+        >
+          More honors
+        </motion.p>
+        <div className="border-t border-[#ddd0bc]/60">
+          {honors.map((award, i) => (
+            <motion.div
+              key={award.title}
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.35 + i * 0.05 }}
+              className="flex flex-wrap items-baseline gap-x-6 gap-y-1 py-4 border-b border-[#ddd0bc]/60"
+            >
+              <span className="font-body text-xs text-[#9e8468] tabular-nums w-28 shrink-0">
+                {award.year}
+              </span>
+              <span className="font-display text-base md:text-lg font-light text-[#2a2118] leading-snug flex-1 min-w-[220px]">
+                {award.title}
+              </span>
+              <CategoryBadge category={award.category} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.section>

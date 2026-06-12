@@ -12,7 +12,7 @@ export default function About() {
     <motion.section
       ref={ref}
       id="about"
-      className="py-28 md:py-36"
+      className="py-28 md:py-36 border-t border-[#ddd0bc]/60"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -27,7 +27,7 @@ export default function About() {
           className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
           aria-hidden="true"
         >
-          01
+          03
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -55,12 +55,13 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5"
           >
-            Fully in, or not at all. That's been the pattern for most things in my
-            life. I spent years learning Kuchipudi and ended up as part of a Guinness
-            World Record performance. I graduated in the top 10 of my class, held a
-            merit scholarship throughout college, competed nationally in fencing,
-            led student initiatives, and somehow found time to pursue a dozen other
-            interests along the way.
+            I&apos;m a software engineer at insightsoftware, where I build
+            enterprise finance software used by 120+ global clients &mdash;
+            backend services in C# and .NET, frontend systems in React and
+            TypeScript, and the Azure infrastructure between them. What I care
+            about most is end-to-end ownership: understanding a system deeply
+            enough to change it with confidence, and leaving it easier to work
+            on than I found it.
           </motion.p>
 
           <motion.p
@@ -69,11 +70,12 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="font-body font-light text-[#6b5744] leading-relaxed text-base"
           >
-            That same mindset carries into my work. I like understanding systems,
-            solving difficult problems, and building things that make a difference.
-            Whether it's tracking down a bug, automating away manual work,
-            or experimenting with a new idea just because it's interesting, I tend
-            to go all the way down the rabbit hole.
+            The pattern behind everything I do is depth over dabbling. Years of
+            Kuchipudi led to a Guinness World Record performance. Fencing took
+            me to national championships. Four years of sustained academic work
+            earned a merit scholarship and a top-10 finish in my graduating
+            batch. I bring that same discipline to engineering &mdash; when a
+            problem matters, I stay with it until I understand it completely.
           </motion.p>
         </div>
 

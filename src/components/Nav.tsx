@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const scrollItems = [
-  { label: "About", href: "#about" },
   { label: "Work", href: "#resume" },
   { label: "Projects", href: "#projects" },
+  { label: "About", href: "#about" },
   { label: "Awards", href: "#awards" },
 ];
 

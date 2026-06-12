@@ -1,49 +1,64 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const SHOW_CMU = false;
 
-const TYPE_PHRASE = "I build what won't let go.";
+const TYPE_PHRASES = [
+  "I build what won't let go.",
+  "Backend to browser.",
+  "Data in, clarity out.",
+  "Deep work, shipped.",
+];
+
+const TYPE_SPEED = 60; // ms per character typed
+const DELETE_SPEED = 35; // ms per character deleted
+const HOLD_FULL = 2400; // pause with full phrase on screen
+const HOLD_EMPTY = 500; // pause before typing the next phrase
 
 export default function Hero() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  // Start typing once entrance animations are done (~1700ms)
+  const [deleting, setDeleting] = useState(false);
+  // Start typing once entrance animations are done (~900ms)
   const [started, setStarted] = useState(false);
-  const [typingComplete, setTypingComplete] = useState(false);
-  // Cursor visibility — mounts when typing starts, unmounts ~3s after typing ends
-  const [showCursor, setShowCursor] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => {
-      setStarted(true);
-      setShowCursor(true);
-    }, 1700);
+    const t = setTimeout(() => setStarted(true), 900);
     return () => clearTimeout(t);
   }, []);
 
+  // Type → hold → delete → hold → next phrase, forever
   useEffect(() => {
-    if (!started || typingComplete) return;
+    if (!started) return;
 
-    if (charIndex < TYPE_PHRASE.length) {
-      const t = setTimeout(() => setCharIndex((p) => p + 1), 60);
-      return () => clearTimeout(t);
-    }
+    const phrase = TYPE_PHRASES[phraseIndex];
+    const delay = deleting
+      ? charIndex === 0
+        ? HOLD_EMPTY
+        : DELETE_SPEED
+      : charIndex === phrase.length
+        ? HOLD_FULL
+        : TYPE_SPEED;
 
-    // Typing reached the end
-    setTypingComplete(true);
-  }, [started, charIndex, typingComplete]);
-
-  useEffect(() => {
-    if (!typingComplete) return;
-    const t = setTimeout(() => setShowCursor(false), 3000);
+    const t = setTimeout(() => {
+      if (!deleting) {
+        if (charIndex < phrase.length) setCharIndex((c) => c + 1);
+        else setDeleting(true);
+      } else if (charIndex > 0) {
+        setCharIndex((c) => c - 1);
+      } else {
+        setDeleting(false);
+        setPhraseIndex((i) => (i + 1) % TYPE_PHRASES.length);
+      }
+    }, delay);
     return () => clearTimeout(t);
-  }, [typingComplete]);
+  }, [started, charIndex, deleting, phraseIndex]);
 
-  const typedText = TYPE_PHRASE.slice(0, charIndex);
+  const typedText = TYPE_PHRASES[phraseIndex].slice(0, charIndex);
 
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
@@ -68,7 +83,7 @@ export default function Hero() {
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
-        transition={{ duration: 1.1, delay: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
         style={{ transformOrigin: "left" }}
         className="absolute top-[42%] left-0 right-0 h-px bg-[#ddd0bc]/60"
       />
@@ -79,10 +94,10 @@ export default function Hero() {
           <motion.p
             initial={{ y: "110%" }}
             animate={{ y: "0%" }}
-            transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
+            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
             className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium"
           >
-            Backend &amp; AI Engineer{SHOW_CMU && " · CMU Master's in Information Systems, 2026"}
+            Software Engineer · Backend, Data &amp; Applied AI{SHOW_CMU && " · CMU Master's in Information Systems, 2026"}
           </motion.p>
         </div>
 
@@ -93,7 +108,7 @@ export default function Hero() {
             <motion.div
               initial={{ y: "105%" }}
               animate={{ y: "0%" }}
-              transition={{ duration: 0.88, delay: 0.68, ease: EASE }}
+              transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
             >
               Hi, I&apos;m Bhuvana.
             </motion.div>
@@ -104,12 +119,12 @@ export default function Hero() {
             <motion.div
               initial={{ y: "105%" }}
               animate={{ y: "0%" }}
-              transition={{ duration: 0.88, delay: 0.8, ease: EASE }}
+              transition={{ duration: 0.7, delay: 0.4, ease: EASE }}
             >
               <span className="italic text-[#9e8468]">
                 {typedText}
               </span>
-              {showCursor && <span className="hero-type-cursor text-[#2a2118]">|</span>}
+              <span className="hero-type-cursor text-[#2a2118]">|</span>
             </motion.div>
           </div>
         </h1>
@@ -118,7 +133,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
           className="font-body font-light text-[#6b5744] text-base md:text-lg mt-8 max-w-lg leading-relaxed"
         >
           Backend systems, AI tooling, and the production bugs I trace at midnight{SHOW_CMU && ", incoming grad at CMU"}.
@@ -128,7 +143,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.22, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.65, ease: "easeOut" }}
           className="flex items-center gap-6 mt-10"
         >
           <button

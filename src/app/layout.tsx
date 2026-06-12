@@ -3,9 +3,9 @@ import "./globals.css";
 import Cursor from "@/components/Cursor";
 
 export const metadata: Metadata = {
-  title: "Bhuvana Teja Kanakam, Portfolio",
+  title: "Bhuvana Teja Kanakam — Software Engineer",
   description:
-    "Software engineer, Incoming Grad at CMU. Projects, writing, and everything in between.",
+    "Software engineer building backend systems, data platforms, and applied AI. Projects, writing, and everything in between.",
 };
 
 export default function RootLayout({

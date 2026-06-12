@@ -9,6 +9,58 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  // DRAFT — uncomment to publish (recovered from old data file, never live)
+  /* {
+    title: "What building enterprise SaaS changed in how I engineer",
+    date: "November 2024",
+    readTime: "6 min",
+    tags: ["Engineering", "SaaS"],
+    excerpt:
+      "Working on software used by real finance teams taught me to optimize for reliability, clarity, and trust, not just speed.",
+    slug: "enterprise-saas-engineering",
+    content: [
+      "Before working on enterprise software, I mostly judged code by whether it was elegant and whether it shipped fast. Working on CALUMO at insightsoftware changed that.",
+      "When people rely on your product for financial reporting, the bar is different. A small change in behavior can ripple through workflows, support teams, and month-end processes. That forced me to think less like a builder showing off a feature and more like an engineer protecting a system people already trust.",
+      "Backwards compatibility is part of the product. I learned that migrations, feature flags, and careful rollout plans are not boring work around the real work. They are the real work when customers depend on stability.",
+      "Context matters as much as code. In older codebases, every unusual condition probably exists because somebody already got hurt by the simpler version. I became much more deliberate about reading history, tracing usage, and understanding why a decision was made before proposing a replacement.",
+      "Good engineering is often invisible. Some of my most useful work has been in reducing risk, simplifying workflows, and making the system easier for the next person to change. That kind of work rarely looks flashy from the outside, but it is exactly the kind of work I want to keep doing.",
+      "This experience made me a more grounded engineer. I still like moving fast. I just care much more now about whether what I build will hold up when real teams depend on it.",
+    ],
+  }, */
+  // DRAFT — uncomment to publish (recovered from old data file, never live)
+  /* {
+    title: "What I actually learned from building distributed systems",
+    date: "September 2024",
+    readTime: "7 min",
+    tags: ["Distributed Systems", "Engineering"],
+    excerpt:
+      "Distributed systems stopped being an academic topic for me when I started running into partial failures, timing issues, and observability gaps in real projects.",
+    slug: "distributed-systems-lessons",
+    content: [
+      "I used to think distributed systems were mainly about knowing the terminology. Consistency models, CAP theorem, leader election, retries. Those ideas matter, but they only became real to me once I started building systems where things failed in messy ways.",
+      "Partial failures are where the real complexity lives. A service being fully down is obvious. A service that responds slowly, drops a small percentage of requests, or returns stale data is much harder to reason about. That is where careful timeouts, retries, and idempotency stop being textbook ideas and start becoming engineering discipline.",
+      "Ordering and time are easy to underestimate. I have spent enough time debugging race conditions and coordination issues to know that \"it usually works\" is not a real guarantee. Distributed systems taught me to be precise about event ordering, failure assumptions, and what the system should do when reality is messy.",
+      "Observability is part of the design. I no longer think of logging and monitoring as work you add after the system exists. If you cannot explain how you would detect drift, duplication, latency spikes, or downstream failure, the design is not finished.",
+      "The biggest lesson for me is that good distributed systems engineering is mostly about reducing uncertainty. Clear contracts, predictable failure handling, and useful visibility matter more than cleverness. That mindset shows up in almost every project I build now.",
+    ],
+  }, */
+  // CMU_HIDDEN — re-enable by removing the comment markers when ready to go public
+  /* {
+    title: "Why I chose CMU for the next phase of my career",
+    date: "March 2025",
+    readTime: "5 min",
+    tags: ["CMU", "Career"],
+    excerpt:
+      "CMU felt like the right next step because it strengthens the exact intersection I care about: software engineering, data systems, and product thinking.",
+    slug: "why-i-chose-cmu",
+    content: [
+      "Getting into Carnegie Mellon was meaningful to me, but the part that matters most is why I chose it.",
+      "I want to build products that sit close to the data layer and still feel useful to end users. That means I need stronger depth in data systems, stronger product judgment, and stronger exposure to how technical decisions connect to business outcomes. CMU's MISM BIDA path felt aligned with that.",
+      "The application process also clarified something for me: the strongest parts of my profile were not abstract claims. They were specific things I had built, debugged, and shipped. When I wrote about projects, I was most effective when I explained the tradeoffs, what failed, and what I learned from solving it.",
+      "That is probably the biggest lesson I am carrying forward. The best story about my work is not a polished headline. It is a concrete example of how I think, how I work through ambiguity, and how I improve a system.",
+      "For me, CMU is not a trophy. It is a way to sharpen the kind of engineer I already know I want to become: someone who can move between implementation, architecture, and product context with confidence.",
+    ],
+  }, */
   {
     title: "Leaving college made me realize what home really is",
     date: "December 2024",

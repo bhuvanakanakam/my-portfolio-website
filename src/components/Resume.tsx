@@ -8,6 +8,8 @@ import { experience } from "@/data";
 import SkillsGraph from "@/components/SkillsGraph";
 
 const RESUME_URL = "/resume.pdf";
+// Set to true once resume.pdf is added to /public — button 404s otherwise
+const SHOW_RESUME = false;
 
 // ─── Inline icons (no extra dep) ──────────────────────────────────
 function BriefcaseIcon({ className = "" }: { className?: string }) {
@@ -79,7 +81,7 @@ export default function Resume() {
           className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
           aria-hidden="true"
         >
-          02
+          01
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -100,6 +102,7 @@ export default function Resume() {
             Experience &amp; skills.
           </motion.h2>
 
+          {SHOW_RESUME && (
           <motion.a
             href={RESUME_URL}
             target="_blank"
@@ -119,6 +122,7 @@ export default function Resume() {
             </svg>
             Download CV
           </motion.a>
+          )}
         </div>
 
         {/* ── EXPERIENCE ─────────────────────────────────────────── */}

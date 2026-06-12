@@ -45,7 +45,7 @@ export default function Projects() {
             className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
             aria-hidden="true"
           >
-            03
+            02
           </motion.p>
 
           <motion.p
