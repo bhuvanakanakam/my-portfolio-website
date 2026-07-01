@@ -5,7 +5,7 @@ export const projects = [
     description:
       "A personal Formula 1 dashboard for tracking race results, lap metrics, driver standings, and season performance — built because spreadsheets weren't cutting it anymore.",
     tags: ["Next.js", "TypeScript", "Data Viz", "F1 API"],
-    github: "https://github.com/bhuvanakanakam",
+    github: "https://github.com/bhuvanakanakam/kaybee-f1",
     live: "https://kaybee-f1.vercel.app/",
     color: "#f5f0e8",
     year: "2025",
@@ -18,7 +18,7 @@ export const projects = [
     description:
       "A real-time system that uses webcam iris tracking (MediaPipe FaceMesh) to infer user intent from gaze fixations and dynamically restructure web interfaces, surfacing content, collapsing what's been read, prompting when hesitant. Runs entirely in-browser, no data leaves the device.",
     tags: ["React", "TypeScript", "MediaPipe", "Framer Motion"],
-    github: "https://github.com/bhuvanakanakam",
+    github: "https://github.com/bhuvanakanakam/nucleus-gaze-ui",
     color: "#ddd0bc",
     year: "2025",
     story:
@@ -79,7 +79,7 @@ export const projects = [
     description:
       "Few-shot learning applied to cardiac MRI segmentation using U-Net and encoder-decoder models, with advanced preprocessing to improve accuracy on limited labeled data.",
     tags: ["Python", "PyTorch", "U-Net", "Few-Shot Learning"],
-    github: "https://github.com/bhuvanakanakam",
+    github: "https://github.com/bhuvanakanakam/semantic-segmentation-cardiac-images",
     color: "#f5f0e8",
     year: "2023",
     story:
@@ -91,7 +91,7 @@ export const projects = [
     description:
       "A fully vectorized artificial neural network built in pure Python (no deep learning libraries) for regression tasks: sin(x) approximation and Combined Cycle Power Plant prediction.",
     tags: ["Python", "NumPy", "Backpropagation", "Adam Optimizer"],
-    github: "https://github.com/bhuvanakanakam",
+    github: "https://github.com/bhuvanakanakam/ANN-Implementation",
     color: "#ddd0bc",
     year: "2023",
     story:
@@ -103,7 +103,7 @@ export const projects = [
     description:
       "A CycleGAN implementation in PyTorch that learns to transfer Monet's painting style to photographs, achieving a Fréchet Inception Distance (FID) below 60 on Kaggle.",
     tags: ["Python", "PyTorch", "CycleGAN", "GANs"],
-    github: "https://github.com/bhuvanakanakam",
+    github: "https://github.com/bhuvanakanakam/genarate-paintings-photograph",
     color: "#ede4d4",
     year: "2023",
     story:
@@ -115,7 +115,7 @@ export const projects = [
     description:
       "A real-time tool to analyze and visualize live network bandwidth usage across interfaces, enabling traffic insights and anomaly detection for infrastructure optimization.",
     tags: ["Python", "Networking", "Real-time", "Visualization"],
-    github: "https://github.com/bhuvanakanakam",
+    github: "https://github.com/bhuvanakanakam/network-bandwidth-monitoring-system",
     color: "#f5f0e8",
     year: "2023",
     story:
