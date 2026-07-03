@@ -184,7 +184,7 @@ export const experience: ExperienceEntry[] = [
   {
     company: "insightsoftware",
     role: "Associate Software Engineer",
-    period: "Jul 2025 – Present",
+    period: "Jun 2025 – Jul 2026",
     location: "Hyderabad, India",
     type: "work",
     current: true,
@@ -235,19 +235,19 @@ export const experience: ExperienceEntry[] = [
         ],
         tech: ["React", "TypeScript", "APIs"],
       },
-      {
-        category: "Cloud Platform Engineering",
-        title: "Multi-Tenant Cloud Management Portal",
-        description:
-          "Built a self-service Azure-based cloud management platform with tenant-scoped access control and secure enterprise configuration workflows. Implemented domain-specific access isolation so enterprise customers manage only their own environments without dependency on DevOps or support teams.",
-        focusAreas: [
-          "Multi-tenant SaaS systems",
-          "Access control & isolation",
-          "Enterprise cloud tooling",
-          "Self-service configuration workflows",
-        ],
-        tech: ["C#", ".NET 8", "ASP.NET Core", "Azure"],
-      },
+      // {
+      //   category: "Cloud Platform Engineering",
+      //   title: "Multi-Tenant Cloud Management Portal",
+      //   description:
+      //     "Built a self-service Azure-based cloud management platform with tenant-scoped access control and secure enterprise configuration workflows. Implemented domain-specific access isolation so enterprise customers manage only their own environments without dependency on DevOps or support teams.",
+      //   focusAreas: [
+      //     "Multi-tenant SaaS systems",
+      //     "Access control & isolation",
+      //     "Enterprise cloud tooling",
+      //     "Self-service configuration workflows",
+      //   ],
+      //   tech: ["C#", ".NET 8", "ASP.NET Core", "Azure"],
+      // },
       {
         category: "Enterprise Cloud Systems",
         title: "Cloud Management Export Systems",

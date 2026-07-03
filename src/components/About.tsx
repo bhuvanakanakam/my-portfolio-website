@@ -55,12 +55,14 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5"
           >
-            I&apos;m a software engineer at insightsoftware, where I build
-            enterprise finance software used by 120+ global clients &mdash;
-            backend services in C# and .NET, frontend systems in React and
-            TypeScript, and the Azure infrastructure between them. What I care
-            about most is end-to-end ownership: understanding a system deeply
-            enough to change it with confidence, and leaving it easier to work
+            Hi! I'm Bhuvana, a software engineer focused on backend systems, 
+            applied AI, and infrastructure that just works.  I most recently 
+            worked at insightsoftwarewhere, where I built enterprise finance 
+            software used by 120+ global clients, backend services in C# and 
+            .NET, frontend systems in React and TypeScript and the Azure 
+            infrastructure between them.
+            What I care about most is end-to-end ownership: understanding a system 
+            deeply enough to change it with confidence, and leaving it easier to work
             on than I found it.
           </motion.p>
 
