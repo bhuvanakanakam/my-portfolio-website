@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 type Category = "Social Impact" | "Arts & Culture" | "Athletics" | "Tech" | "Academic";
@@ -110,6 +110,7 @@ function CategoryBadge({ category }: { category: Category }) {
 export default function Extracurriculars() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [showAll, setShowAll] = useState(false);
 
   return (
     <motion.section
@@ -185,34 +186,54 @@ export default function Extracurriculars() {
           ))}
         </div>
 
-        {/* More honors — compact editorial list */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="font-body text-xs tracking-[0.28em] uppercase text-[#9e8468] font-medium mb-2"
-        >
-          More honors
-        </motion.p>
-        <div className="border-t border-[#ddd0bc]/60">
-          {honors.map((award, i) => (
-            <motion.div
-              key={award.title}
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.35 + i * 0.05 }}
-              className="flex flex-wrap items-baseline gap-x-6 gap-y-1 py-4 border-b border-[#ddd0bc]/60"
+        {/* More honors — compact editorial list, behind a toggle */}
+        {showAll && (
+          <>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+              className="font-body text-xs tracking-[0.28em] uppercase text-[#9e8468] font-medium mb-2"
             >
-              <span className="font-body text-xs text-[#9e8468] tabular-nums w-28 shrink-0">
-                {award.year}
-              </span>
-              <span className="font-display text-base md:text-lg font-light text-[#2a2118] leading-snug flex-1 min-w-[220px]">
-                {award.title}
-              </span>
-              <CategoryBadge category={award.category} />
-            </motion.div>
-          ))}
-        </div>
+              More honors
+            </motion.p>
+            <div className="border-t border-[#ddd0bc]/60">
+              {honors.map((award, i) => (
+                <motion.div
+                  key={award.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: i * 0.04 }}
+                  className="flex flex-wrap items-baseline gap-x-6 gap-y-1 py-4 border-b border-[#ddd0bc]/60"
+                >
+                  <span className="font-body text-xs text-[#9e8468] tabular-nums w-28 shrink-0">
+                    {award.year}
+                  </span>
+                  <span className="font-display text-base md:text-lg font-light text-[#2a2118] leading-snug flex-1 min-w-[220px]">
+                    {award.title}
+                  </span>
+                  <CategoryBadge category={award.category} />
+                </motion.div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Show more / less — same pattern as Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className={`flex justify-center ${showAll ? "mt-12" : ""}`}
+        >
+          <button
+            onClick={() => setShowAll((v) => !v)}
+            className="font-body text-sm tracking-[0.2em] uppercase text-[#6b5744] border border-[#ddd0bc] px-8 py-3 hover:border-[#b59f84] hover:text-[#2a2118] transition-all duration-300"
+            data-cursor-hover
+          >
+            {showAll ? "Show less ↑" : `Show ${honors.length} more honors ↓`}
+          </button>
+        </motion.div>
       </div>
     </motion.section>
   );
