@@ -85,18 +85,18 @@ export const projects = [
     story:
       "Medical image segmentation is hard because labeled data is expensive and scarce. The few-shot approach lets the model generalize from a handful of annotated examples. U-Net's skip connections preserve spatial detail that gets lost in standard encoders, crucial for delineating cardiac boundaries accurately. The preprocessing pipeline (normalization, augmentation, registration) ended up being as important as the model architecture itself.",
   },
-  {
-    id: "5",
-    title: "ANN from Scratch",
-    description:
-      "A fully vectorized artificial neural network built in pure Python (no deep learning libraries) for regression tasks: sin(x) approximation and Combined Cycle Power Plant prediction.",
-    tags: ["Python", "NumPy", "Backpropagation", "Adam Optimizer"],
-    github: "https://github.com/bhuvanakanakam/ANN-Implementation",
-    color: "#ddd0bc",
-    year: "2023",
-    story:
-      "The constraint was simple: no PyTorch, no TensorFlow, no Keras. Just NumPy and math. Implementing vectorized backpropagation from first principles, then getting momentum and Adam to converge correctly, and this is where I really understood what a neural network is doing. Every framework abstraction I use now feels transparent because I've written it by hand.",
-  },
+  // {
+  //   id: "5",
+  //   title: "ANN from Scratch",
+  //   description:
+  //     "A fully vectorized artificial neural network built in pure Python (no deep learning libraries) for regression tasks: sin(x) approximation and Combined Cycle Power Plant prediction.",
+  //   tags: ["Python", "NumPy", "Backpropagation", "Adam Optimizer"],
+  //   github: "https://github.com/bhuvanakanakam/ANN-Implementation",
+  //   color: "#ddd0bc",
+  //   year: "2023",
+  //   story:
+  //     "The constraint was simple: no PyTorch, no TensorFlow, no Keras. Just NumPy and math. Implementing vectorized backpropagation from first principles, then getting momentum and Adam to converge correctly, and this is where I really understood what a neural network is doing. Every framework abstraction I use now feels transparent because I've written it by hand.",
+  // },
   {
     id: "6",
     title: "Generating Paintings from Photographs with CycleGAN",
