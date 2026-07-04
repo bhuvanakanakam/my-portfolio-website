@@ -189,18 +189,18 @@ export const experience: ExperienceEntry[] = [
     type: "work",
     current: true,
     bullets: [
-      "Built enterprise features used by 120+ global clients across finance and operations teams on the CALUMO platform.",
+      "Built enterprise features used by 120+ global clients across finance and operations teams on an enterprise reporting & planning platform.",
       "Developed ASP.NET Core / .NET 8 services with CI/CD pipelines on Azure.",
       "Integrated Azure OpenAI and Microsoft Graph API into production workflows.",
     ],
     summary:
-      "Working on enterprise platform migration, reusable frontend infrastructure, and cloud platform engineering for CALUMO as part of insightsoftware's unified enterprise ecosystem.",
+      "Working on enterprise platform migration, reusable frontend infrastructure, and cloud platform engineering as part of insightsoftware's unified enterprise ecosystem.",
     projects: [
       {
         category: "Platform Migration",
-        title: "CALUMO → Unified Platform Migration",
+        title: "Legacy Product → Unified Platform Migration",
         description:
-          "Migrated legacy CALUMO product experiences onto insightsoftware's shared enterprise platform using the JustPerform design system and reusable UI standards.",
+          "Migrated a legacy enterprise product's experiences onto insightsoftware's shared enterprise platform using the company's shared design system and reusable UI standards.",
         focusAreas: [
           "Product modernisation",
           "Platformisation",
@@ -252,7 +252,7 @@ export const experience: ExperienceEntry[] = [
         category: "Enterprise Cloud Systems",
         title: "Cloud Management Export Systems",
         description:
-          "Owned release-critical fixes for CALUMO's Cloud Management Export workflows across UI and backend service layers for the Calumo 26.1 release.",
+          "Owned release-critical fixes for the platform's Cloud Management Export workflows across UI and backend service layers for a major platform release.",
         focusAreas: [
           "Full stack debugging",
           "Cloud workflow engineering",
@@ -295,11 +295,11 @@ export const experience: ExperienceEntry[] = [
     location: "Hyderabad, India",
     type: "work",
     bullets: [
-      "Contributed to CDM Next, a financial data management platform serving enterprise clients.",
+      "Contributed to a financial data management platform serving enterprise clients.",
       "Built backend APIs and services in C# / .NET 8 across feature development and production releases.",
     ],
     summary:
-      "Worked as a full stack engineering intern contributing to enterprise finance & planning product releases for CDM Modernization.",
+      "Worked as a full stack engineering intern contributing to enterprise finance & planning product releases for a major platform modernization initiative.",
     projects: [
       {
         category: "Onboarding Bootcamp",
@@ -318,7 +318,7 @@ export const experience: ExperienceEntry[] = [
         category: "GA Release Engineering",
         title: "Roll Forward & Export Systems",
         description:
-          "Delivered full stack enterprise workflows as part of CDM Next's GA release, contributing across frontend and backend systems.",
+          "Delivered full stack enterprise workflows as part of the platform's GA release, contributing across frontend and backend systems.",
         focusAreas: [
           "Full stack engineering",
           "Enterprise workflows",
@@ -343,7 +343,7 @@ export const experience: ExperienceEntry[] = [
         category: "Customer-Facing Web Engineering",
         title: "Platform & Web Experiences",
         description:
-          "Worked on customer-facing web workflows, platform integrations, and internal tooling initiatives across the CDM Next's ecosystem.",
+          "Worked on customer-facing web workflows, platform integrations, and internal tooling initiatives across the platform ecosystem.",
         focusAreas: [
           "Frontend engineering",
           "Platform integrations",
@@ -360,37 +360,37 @@ export const experience: ExperienceEntry[] = [
     location: "Remote",
     type: "work",
     bullets: [
-      "Built and shipped full-stack product features using React and Node.js.",
-      "Worked across frontend and backend to deliver user-facing improvements end-to-end.",
+      "Built and validated network infrastructure for next-generation firewall systems, designing lab topologies from scratch.",
+      "Built an automated monitoring framework tracking 20+ real-time metrics — reduced system downtime by 30% and cut validation cycle time by 40%.",
     ],
     summary:
-      "Shipped full-stack product features end-to-end on a small remote team — from API design through React component to deploy.",
+      "Built and validated network infrastructure for next-generation firewall systems — lab topology design, production-grade traffic simulation, and automated monitoring that cut validation cycle time by 40%.",
     projects: [
       {
-        category: "Full Stack Engineering",
-        title: "User-Facing Product Features",
+        category: "Network Engineering",
+        title: "Network Infrastructure Validation",
         description:
-          "Built customer-facing React UI flows backed by a Node.js + Express API, owning each feature from data shape to deployed component. Worked with product to scope and ship within tight iteration cycles.",
+          "Designed lab topologies from scratch for next-generation firewall systems and simulated production-grade traffic loads to validate behavior under realistic conditions — cutting validation cycle time by 40%.",
         focusAreas: [
-          "React component design",
-          "REST API design",
-          "End-to-end feature ownership",
-          "Cross-functional collaboration",
+          "Lab topology design",
+          "Traffic simulation",
+          "Firewall system validation",
+          "Test environment tooling",
         ],
-        tech: ["React", "Node.js", "Express", "JavaScript"],
+        tech: ["Networking", "Firewall Systems", "Traffic Simulation", "Lab Tooling"],
       },
       {
-        category: "Backend & Data",
-        title: "Service Layer & API Integrations",
+        category: "Monitoring & Automation",
+        title: "Automated Monitoring Framework",
         description:
-          "Built backend services and integration points used across the product, including authentication flows, request validation, and reusable middleware patterns the rest of the team adopted.",
+          "Built an automated monitoring framework tracking 20+ real-time network and system metrics, surfacing failures early and reducing system downtime by 30%.",
         focusAreas: [
-          "Backend services",
-          "Auth & sessions",
-          "Middleware design",
-          "API reliability",
+          "Real-time monitoring",
+          "Automation frameworks",
+          "Metrics & alerting",
+          "Reliability engineering",
         ],
-        tech: ["Node.js", "Express", "REST", "JWT"],
+        tech: ["Monitoring", "Automation", "Networking", "Python"],
       },
     ],
   },
@@ -402,10 +402,10 @@ export const experience: ExperienceEntry[] = [
     type: "work",
     bullets: [
       "Developed ML classification models in Python using scikit-learn.",
-      "Built data preprocessing pipelines and benchmarked model performance across datasets.",
+      "Built and trained a CNN-based deep learning model for cardiovascular risk prediction from heartbeat signals, reaching 83% accuracy.",
     ],
     summary:
-      "Short, focused remote stint building classical-ML classification pipelines and supporting data tooling for client datasets.",
+      "Built classical-ML classification pipelines and a CNN-based deep learning model for cardiovascular risk prediction from heartbeat signal analysis.",
     projects: [
       {
         category: "Machine Learning",
@@ -421,17 +421,17 @@ export const experience: ExperienceEntry[] = [
         tech: ["Python", "scikit-learn", "pandas", "NumPy"],
       },
       {
-        category: "Data Engineering",
-        title: "EDA & Preprocessing Workflows",
+        category: "Deep Learning",
+        title: "Cardiovascular Risk Prediction",
         description:
-          "Produced exploratory notebooks and data-quality reports for incoming client datasets, surfacing leakage, class imbalance, and feature drift before any model training began.",
+          "Built and trained a CNN-based deep learning model for cardiovascular risk prediction using heartbeat signal analysis, achieving 83% accuracy on held-out data.",
         focusAreas: [
-          "Exploratory data analysis",
-          "Data quality reporting",
-          "Feature engineering",
-          "Preprocessing pipelines",
+          "Deep learning",
+          "Signal processing",
+          "Model training & evaluation",
+          "Healthcare ML",
         ],
-        tech: ["Python", "pandas", "Matplotlib", "Jupyter"],
+        tech: ["PyTorch", "CNNs", "Signal Processing", "Python"],
       },
     ],
   },
