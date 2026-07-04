@@ -187,7 +187,7 @@ export const experience: ExperienceEntry[] = [
     period: "Jun 2025 – Jul 2026",
     location: "Hyderabad, India",
     type: "work",
-    current: true,
+    current: false,
     bullets: [
       "Built enterprise features used by 120+ global clients across finance and operations teams on an enterprise reporting & planning platform.",
       "Developed ASP.NET Core / .NET 8 services with CI/CD pipelines on Azure.",
