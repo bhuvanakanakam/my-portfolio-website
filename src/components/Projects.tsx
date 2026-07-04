@@ -15,15 +15,28 @@ const fadeUp = {
   }),
 };
 
+const DOMAINS = [
+  "All",
+  "AI & Machine Learning",
+  "Full Stack",
+  "Systems",
+  "Research",
+] as const;
+
 export default function Projects() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const [domain, setDomain] = useState<(typeof DOMAINS)[number]>("All");
   const activeProject = projects.find((p) => p.id === active);
 
-  const visibleProjects = showAll ? projects : projects.slice(0, INITIAL_VISIBLE);
-  const hasMore = projects.length > INITIAL_VISIBLE;
+  const filtered =
+    domain === "All"
+      ? projects
+      : projects.filter((p) => p.domains.includes(domain));
+  const visibleProjects = showAll ? filtered : filtered.slice(0, INITIAL_VISIBLE);
+  const hasMore = filtered.length > INITIAL_VISIBLE;
 
   return (
     <motion.section
@@ -45,7 +58,7 @@ export default function Projects() {
             className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
             aria-hidden="true"
           >
-            02
+            03
           </motion.p>
 
           <motion.p
@@ -64,6 +77,32 @@ export default function Projects() {
           >
             Things I&apos;ve built.
           </motion.h2>
+
+          {/* Domain filter */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-wrap gap-2"
+          >
+            {DOMAINS.map((d) => (
+              <button
+                key={d}
+                onClick={() => {
+                  setDomain(d);
+                  setShowAll(false);
+                }}
+                className={`font-body text-[11px] tracking-[0.15em] uppercase px-4 py-2 border transition-all duration-200 ${
+                  domain === d
+                    ? "bg-[#2a2118] text-[#faf8f5] border-[#2a2118]"
+                    : "text-[#6b5744] border-[#ddd0bc] hover:border-[#b59f84] hover:text-[#2a2118]"
+                }`}
+                data-cursor-hover
+              >
+                {d}
+              </button>
+            ))}
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -175,7 +214,7 @@ export default function Projects() {
             >
               {showAll
                 ? `Show less ↑`
-                : `Show all ${projects.length} projects ↓`}
+                : `Show all ${filtered.length} projects ↓`}
             </button>
           </motion.div>
         )}

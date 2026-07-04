@@ -5,7 +5,6 @@ import { AnimatePresence, motion, useInView } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import { experience } from "@/data";
 
-import SkillsGraph from "@/components/SkillsGraph";
 
 const RESUME_URL = "/resume.pdf";
 // Set to true once resume.pdf is added to /public — button 404s otherwise
@@ -81,7 +80,7 @@ export default function Resume() {
           className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
           aria-hidden="true"
         >
-          01
+          02
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -99,7 +98,7 @@ export default function Resume() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl md:text-5xl font-light text-[#2a2118] leading-tight mb-8"
           >
-            Experience &amp; skills.
+            Experience.
           </motion.h2>
 
           {SHOW_RESUME && (
@@ -359,19 +358,6 @@ export default function Resume() {
             </div>
           </motion.div>
         )}
-
-        {/* ── SKILLS ─────────────────────────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.65 }}
-          className="mt-16"
-        >
-          <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-8">
-            Skills
-          </p>
-          <SkillsGraph />
-        </motion.div>
 
       </div>
     </motion.section>

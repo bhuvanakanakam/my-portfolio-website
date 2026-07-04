@@ -8,9 +8,9 @@ type Stat =
   | { isStatic?: false; value: number; suffix: string; label: string };
 
 const stats: Stat[] = [
-  { value: 11,  suffix: "+", label: "Projects Shipped" },
+  { value: 13,  suffix: "+", label: "Projects Shipped" },
   { isStatic: true, display: "4yr",   label: "Merit Scholarship" },
-  { value: 8,   suffix: "+", label: "Awards & Honors" },
+  { value: 10,  suffix: "+", label: "Awards & Honors" },
   { value: 1,   suffix: "",  label: "Guinness Record" },
 ];
 

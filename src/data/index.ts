@@ -1,6 +1,7 @@
 export const projects = [
   {
     id: "kaybee-f1",
+    domains: ["Full Stack"],
     title: "KayBee F1",
     description:
       "A personal Formula 1 dashboard for tracking race results, lap metrics, driver standings, and season performance — built because spreadsheets weren't cutting it anymore.",
@@ -14,6 +15,7 @@ export const projects = [
   },
   {
     id: "gaze-ui",
+    domains: ["AI & Machine Learning"],
     title: "Gaze-Conditioned UI Adaptation",
     description:
       "A real-time system that uses webcam iris tracking (MediaPipe FaceMesh) to infer user intent from gaze fixations and dynamically restructure web interfaces, surfacing content, collapsing what's been read, prompting when hesitant. Runs entirely in-browser, no data leaves the device.",
@@ -26,6 +28,7 @@ export const projects = [
   },
   {
     id: "baes-kankan",
+    domains: ["Full Stack"],
     title: "Bae's Kankan — E-Commerce",
     description:
       "A full-stack premium fashion e-commerce website with 30 curated products, cart, wishlist, checkout, user auth, and a Node.js + SQL Server backend. Deployed live on Vercel.",
@@ -39,6 +42,7 @@ export const projects = [
   },
   {
     id: "1",
+    domains: ["Research", "AI & Machine Learning"],
     title: "Emotion-Aligned Music Composition",
     description:
       "An AI system that generates Rasa Theory-aligned music using multi-objective Differential Evolution, variable crossover, and Fourier-based emotion-attribute encoding.",
@@ -51,6 +55,7 @@ export const projects = [
   },
   {
     id: "3",
+    domains: ["Systems"],
     title: "Decentralized File Storage System",
     description:
       "A distributed storage network inspired by IPFS/Filecoin, implementing content-addressed retrieval, cryptographic hash-based integrity verification, and custom replication and lookup protocols.",
@@ -63,6 +68,7 @@ export const projects = [
   },
   {
     id: "4",
+    domains: ["AI & Machine Learning"],
     title: "Regional Language Toxic Comment Classification",
     description:
       "A multilingual toxicity detection model using MuBERT and XLM-RoBERTa, trained on regional Indian language datasets and deployed as a real-time web application.",
@@ -75,6 +81,7 @@ export const projects = [
   },
   {
     id: "cardiac-mri",
+    domains: ["AI & Machine Learning", "Research"],
     title: "Semantic Segmentation of Cardiac MRI",
     description:
       "Few-shot learning applied to cardiac MRI segmentation using U-Net and encoder-decoder models, with advanced preprocessing to improve accuracy on limited labeled data.",
@@ -87,6 +94,7 @@ export const projects = [
   },
   // {
   //   id: "5",
+  //   domains: ["AI & Machine Learning"],
   //   title: "ANN from Scratch",
   //   description:
   //     "A fully vectorized artificial neural network built in pure Python (no deep learning libraries) for regression tasks: sin(x) approximation and Combined Cycle Power Plant prediction.",
@@ -99,6 +107,7 @@ export const projects = [
   // },
   {
     id: "6",
+    domains: ["AI & Machine Learning"],
     title: "Generating Paintings from Photographs with CycleGAN",
     description:
       "A CycleGAN implementation in PyTorch that learns to transfer Monet's painting style to photographs, achieving a Fréchet Inception Distance (FID) below 60 on Kaggle.",
@@ -111,6 +120,7 @@ export const projects = [
   },
   {
     id: "bandwidth",
+    domains: ["Systems"],
     title: "Network Bandwidth Monitoring System",
     description:
       "A real-time tool to analyze and visualize live network bandwidth usage across interfaces, enabling traffic insights and anomaly detection for infrastructure optimization.",
@@ -123,6 +133,7 @@ export const projects = [
   },
   {
     id: "pest",
+    domains: ["Research"],
     title: "Pest Detection in Orchards (Drone Imagery)",
     description:
       "A greedy-based algorithm for automated pest detection from drone imagery, benchmarked against established research algorithms for comparative performance evaluation.",
@@ -135,6 +146,7 @@ export const projects = [
   },
   {
     id: "synthi-gen",
+    domains: ["Full Stack", "AI & Machine Learning"],
     title: "SynthiGen: Synthetic Data Generator",
     description:
       "A data synthesis platform (1st place, Dell Hack-to-Hire 2023) that lets users define complex schemas with customizable distributions, relationships, and constraints, generating datasets in Parquet format with token-based authentication.",
@@ -147,6 +159,7 @@ export const projects = [
   },
   {
     id: "nlp-representations",
+    domains: [""],
     title: "NLP: Word, Phrase & Sentence Representations",
     description:
       "A deep-dive into representation learning for natural language — implementing word similarity (Word2Vec, GloVe), phrase-level composition, and sentence similarity using transformer-based embeddings.",
@@ -443,7 +456,6 @@ export const experience: ExperienceEntry[] = [
     type: "work",
     bullets: [
       "Researched AI music composition using multi-objective Differential Evolution and evolutionary clustering.",
-      "Contributed to an IEEE Transactions paper on emotion-aligned music generation.",
     ],
   },
   // CMU_HIDDEN — re-enable by removing the comment markers when ready to go public

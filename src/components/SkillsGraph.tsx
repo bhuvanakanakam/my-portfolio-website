@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Code, Monitor, BrainCircuit, Cloud, BarChart3 } from "lucide-react";
+// NOTE: re-add BarChart3 to this import if you re-enable the Data Science category below
+import { Code, Monitor, BrainCircuit, Cloud } from "lucide-react";
 
 type Category = {
   label: string;
@@ -47,22 +48,19 @@ const categories: Category[] = [
       "LaTeX",
     ],
   },
-  {
-    label: "Data Science",
-    icon: BarChart3,
-    skills: [
-      "Feature Engineering",
-      "Statistical Modeling",
-      "Clustering",
-      "Dimensionality Reduction",
-      "Exploratory Data Analysis",
-      "Data Visualization",
-      "Jupyter",
-      "Matplotlib",
-      "Spark",
-      "Kafka",
-    ],
-  },
+  // {
+  //   label: "Data Science",
+  //   icon: BarChart3,
+  //   skills: [
+  //     "Feature Engineering",
+  //     "Statistical Modeling",
+  //     "Clustering",
+  //     "Data Visualization",
+  //     "Jupyter",
+  //     "Matplotlib",
+  //     "Spark",
+  //   ],
+  // },
   {
     label: "Web Development",
     icon: Monitor,
@@ -85,7 +83,6 @@ const categories: Category[] = [
     label: "Cloud & DevOps",
     icon: Cloud,
     skills: [
-      "Azure",
       "AWS",
       "Docker",
       "CI/CD",
@@ -110,7 +107,7 @@ export default function SkillsGraph() {
             initial={{ opacity: 0, y: 14 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.07 * ci }}
-            className="rounded-lg border border-[#ddd0bc]/70 bg-[#f5f0e8] p-6 md:p-7 hover:border-[#b59f84] transition-colors duration-200"
+            className="rounded-lg border border-[#ddd0bc]/70 bg-[#f8f5ef] p-6 md:p-7 hover:border-[#b59f84] transition-colors duration-200"
           >
             {/* Icon + category title */}
             <div className="flex items-center gap-3 mb-5">

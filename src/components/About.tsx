@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import InterestsGrid from "@/components/InterestsGrid";
+import SkillsGraph from "@/components/SkillsGraph";
 
 export default function About() {
   const ref = useRef<HTMLElement>(null);
@@ -12,7 +13,7 @@ export default function About() {
     <motion.section
       ref={ref}
       id="about"
-      className="py-28 md:py-36 border-t border-[#ddd0bc]/60"
+      className="py-28 md:py-36"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -27,7 +28,7 @@ export default function About() {
           className="font-display text-[7rem] md:text-[9rem] font-light leading-none text-[#ede4d4] mb-4 select-none pointer-events-none"
           aria-hidden="true"
         >
-          03
+          01
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -55,15 +56,23 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5"
           >
-            Hi! I'm Bhuvana, a software engineer focused on backend systems, 
-            applied AI, and infrastructure that just works.  I most recently 
-            worked at insightsoftwarewhere, where I built enterprise finance 
-            software used by 120+ global clients, backend services in C# and 
-            .NET, frontend systems in React and TypeScript and the Azure 
+            Hi! I&apos;m Bhuvana, a software engineer focused on backend systems,
+            applied AI, and infrastructure that just works. I most recently
+            worked at insightsoftware, where I built enterprise finance
+            software used by 120+ global clients &mdash; backend services in C#
+            and .NET, frontend systems in React and TypeScript, and the Azure
             infrastructure between them.
-            What I care about most is end-to-end ownership: understanding a system 
-            deeply enough to change it with confidence, and leaving it easier to work
-            on than I found it.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="font-body font-light text-[#6b5744] leading-relaxed text-base mb-5"
+          >
+            What I care about most is end-to-end ownership: understanding a
+            system deeply enough to change it with confidence, and leaving it
+            easier to work on than I found it.
           </motion.p>
 
           <motion.p
@@ -80,6 +89,20 @@ export default function About() {
             problem matters, I stay with it until I understand it completely.
           </motion.p>
         </div>
+
+        {/* Skills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="border-t border-[#ddd0bc]/60 pt-14 mb-24"
+          id="skills"
+        >
+          <p className="font-body text-sm tracking-[0.25em] uppercase text-[#9e8468] font-medium mb-8">
+            Skills
+          </p>
+          <SkillsGraph />
+        </motion.div>
 
         {/* Interests */}
         <motion.div
