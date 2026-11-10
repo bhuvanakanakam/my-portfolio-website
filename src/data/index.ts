@@ -1,5 +1,18 @@
 export const projects = [
   {
+    id: "profitshield",
+    domains: ["Full Stack", "AI & Machine Learning"],
+    title: "ProfitShield",
+    description:
+      "A back-office money assistant for restaurants on delivery apps, built at CMU's NOVA hackathon for the DoorDash Back House track. It pulls DoorDash, Uber Eats, Grubhub and Square data plus supplier invoices into one place, flags money leaks with evidence, and lets the owner simulate a change before approving it.",
+    tags: ["Python", "SQLite", "JavaScript", "LLM Tool Calling", "Hackathon"],
+    github: "https://github.com/bhuvanakanakam/profitshield",
+    color: "#ede4d4",
+    year: "2026",
+    story:
+      "Restaurant owners selling on three delivery apps plus their own POS end up with five different reports and no clear answer to a simple question: what did I actually keep this week? For the DoorDash Back House track at ScottyLabs NOVA, my teammate and I built ProfitShield to answer that.\n\nIt imports payout CSVs from DoorDash, Uber Eats and Grubhub, syncs Square orders, and reads supplier invoices into one SQLite database. A financial engine works in integer cents, so every number reconciles exactly, and each finding (like a commission billed above the contract rate) links back to the exact rows that prove it.\n\nThe rule we designed around: code calculates, evidence explains, the owner approves. The AI layer uses OpenRouter tool calling over 8 exact SQL and Python tools, so the model never does the math itself. It also maps unfamiliar CSV columns and reads receipt photos and PDF invoices. Customer, staff, driver, email and phone fields are stripped before storage and before any AI call, and the AI stays off unless the owner approves it. Nothing changes until the owner types an approval phrase, and even then the action is simulated, not pushed to a delivery app.\n\nThe hardest part was being honest with the numbers. If labor and rent aren't loaded, the app says profit is unavailable instead of guessing. We backed it with 112 Python tests, 7 JavaScript tests and 5 browser journeys, with CI on Python 3.9 and 3.12.",
+  },
+  {
     id: "kaybee-f1",
     domains: ["Full Stack"],
     title: "KayBee F1",
