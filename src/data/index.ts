@@ -13,6 +13,32 @@ export const projects = [
       "Restaurant owners selling on three delivery apps plus their own POS end up with five different reports and no clear answer to a simple question: what did I actually keep this week? For the DoorDash Back House track at ScottyLabs NOVA, my teammate and I built ProfitShield to answer that.\n\nIt imports payout CSVs from DoorDash, Uber Eats and Grubhub, syncs Square orders, and reads supplier invoices into one SQLite database. A financial engine works in integer cents, so every number reconciles exactly, and each finding (like a commission billed above the contract rate) links back to the exact rows that prove it.\n\nThe rule we designed around: code calculates, evidence explains, the owner approves. The AI layer uses OpenRouter tool calling over 8 exact SQL and Python tools, so the model never does the math itself. It also maps unfamiliar CSV columns and reads receipt photos and PDF invoices. Customer, staff, driver, email and phone fields are stripped before storage and before any AI call, and the AI stays off unless the owner approves it. Nothing changes until the owner types an approval phrase, and even then the action is simulated, not pushed to a delivery app.\n\nThe hardest part was being honest with the numbers. If labor and rent aren't loaded, the app says profit is unavailable instead of guessing. We backed it with 112 Python tests, 7 JavaScript tests and 5 browser journeys, with CI on Python 3.9 and 3.12.",
   },
   {
+    id: "squadly",
+    domains: ["AI & Machine Learning", "Full Stack"],
+    title: "Squadly: Team Formation with CP-SAT",
+    description:
+      "A team-matching tool built at HackCMU 2026 (Optimization track). Grok turns free-text self-descriptions into structured profiles, an OR-Tools CP-SAT solver assigns provably optimal teams, and each team gets a plain-language reason for why it was grouped that way.",
+    tags: ["Python", "FastAPI", "OR-Tools", "Grok API", "React", "TypeScript", "Hackathon"],
+    github: "https://github.com/bhuvanakanakam/crewfit-app",
+    color: "#f5f0e8",
+    year: "2026",
+    story:
+      "Teams in a cohort usually form on vibes, and then fall apart weeks later over things nobody checked: one person wants an A while another just wants to pass, schedules never overlap, or nobody can write. For HackCMU 2026 we built Squadly to match people on what actually breaks teams.\n\nA student describes themselves in their own words, by chat or voice, and Grok turns that into a structured profile: goal, weekly availability, hours per week, and four skill levels. The actual matching isn't left to the LLM. It's an integer program solved with OR-Tools CP-SAT: binary person-to-team variables, a linearized pairwise 'same team' term, team-size bounds, and an objective that maximizes total compatibility. At cohort scale it reaches a provable optimum in well under a second. Grok only comes back at the end to explain each team in one line.\n\nThe design choice I like most: only an organizer veto is a hard constraint. An earlier version treated zero schedule overlap as infeasible and broke on rosters where two weekend-only people had no one else to pair with. Making it a heavy penalty instead means the solver always returns an answer and shows any remaining conflicts openly, rather than crashing.",
+  },
+  {
+    id: "molly",
+    domains: ["AI & Machine Learning", "Systems"],
+    title: "Molly: Full-Duplex Speech Model on 8 GB",
+    description:
+      "A clean re-implementation of the Moshi / PersonaPlex full-duplex speech model, covering inference, fine-tuning (full, LoRA, QLoRA) and training, fast enough to run and fine-tune the 7B model on an 8 GB consumer GPU.",
+    tags: ["Python", "PyTorch", "Triton", "CUDA Graphs", "QLoRA"],
+    github: "https://github.com/bhuvanakanakam",
+    color: "#ddd0bc",
+    year: "2026",
+    story:
+      "Full-duplex speech models listen and talk at the same time, like a real phone call, but the 7B PersonaPlex checkpoint is 16.7 GB in bf16 and normally needs a large GPU. Molly re-implements the model so it runs live on an RTX 3070 with 8 GB.\n\nThe weights are quantized to int4 (4.24 GiB) with a fused Triton GEMV kernel for decoding, and the output still agrees with bf16 on 100% of text tokens and 92 to 98% of audio tokens. Each 80 ms audio frame runs as one CUDA graph covering the LM step, sampling, the depth transformer and the Mimi codec, at about 20 ms per frame, or 4x real time.\n\nTraining fits on the same card. QLoRA runs at 341 to 508 frames per second with a 5.6 GiB peak, using chunked cross-entropy so the logits are never fully materialized, per-layer checkpointing, CPU-offloaded AdamW for the adapters, and a memory-mapped token dataset so no audio is decoded during training. Adapters merge back into a reference checkpoint so the official PersonaPlex server can serve them.",
+  },
+  {
     id: "kaybee-f1",
     domains: ["Full Stack"],
     title: "KayBee F1",
